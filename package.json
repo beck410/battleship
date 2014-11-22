@@ -1,0 +1,19 @@
+{
+  "name": "battleship",
+  "version": "0.0.1",
+  "description": "JavaScript version of Battleship made for class project",
+  "main": "index.html",
+  "scripts": {
+    "test": "grunt serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beck410/battleship.git"
+  },
+  "author": "beck410",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beck410/battleship/issues"
+  },
+  "homepage": "https://github.com/beck410/battleship"
+}
