@@ -55,3 +55,12 @@
   width: ($grid-square-width);
   height: ($grid-square-height * 2);
 }
+
+.ship-rotate {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  text-align: center;
+  padding-top: 10px;
+} 
+

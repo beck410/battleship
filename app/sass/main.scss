@@ -7,6 +7,6 @@ $grid-background: #4483B7;
 $grid-container-width: 1280px;
 
 /* imports */
+@import 'base';
 @import 'ships';
 @import 'board';
-@import 'base';

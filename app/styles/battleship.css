@@ -1,5 +1,25 @@
 /* variables */
 /* imports */
+* {
+  box-sizing: border-box; }
+
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.cf:after {
+  clear: both; }
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1; }
+
 .ships span {
   background: red;
   margin: 20px;
@@ -45,6 +65,13 @@
   width: 50px;
   height: 100px; }
 
+.ship-rotate {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  text-align: center;
+  padding-top: 10px; }
+
 .grids {
   width: 1280px;
   margin: 0 auto; }
@@ -61,19 +88,3 @@
 
 /* .player-grid */
 /* .enemy-grid */
-.cf:before,
-.cf:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */ }
-
-.cf:after {
-  clear: both; }
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-  *zoom: 1; }
