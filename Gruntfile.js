@@ -1,5 +1,3 @@
-
-
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
@@ -17,12 +15,7 @@ module.exports = function(grunt) {
           ext: '.min.css' 
         }]
       },
-      // combine: {
-      //   files: {
-      //     'app/dist/styles/<%= pkg.name =%>---<%= pkg.version =%>.min.css': ['app/styles/min/*.min.css']
-      //   }
-      // }
-    },
+	},
 
     uglify: {
       options: {
@@ -30,7 +23,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'app/dist/js/<%= pkg.name %<.js': ['app/js/<%= pkg.name %>.js'] 
+          'app/dist/js/<%= pkg.name %>.min.js': ['app/dist/js/<%= pkg.name %>.js'] 
         }
       }
     },
@@ -43,7 +36,7 @@ module.exports = function(grunt) {
         },
       dist: {
         src: ['app/js/*.js'],
-        dest: 'app/js/<%= pkg.name %>.js'
+        dest: 'app/dist/js/<%= pkg.name %>.js'
         }
       },
 
@@ -55,21 +48,32 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'app/styles/<%= pkg.name %>.css': 'app/sass/*.scss'
-          }  
+        }  
       }
     },
 
     watch: {
-     sass: {
-      files: ['app/sass/*.scss'],
-      tasks: ['sass', 'cssmin','uncss']
-     }
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }, 
+        files: ['app/*.html','app/sass/*.scss', 'app/styles/*.css','app/js/*.js']
+      },
+      sass: {
+        files: ['app/sass','app/sass/*.scss', 'app/dist/styles/*.css'],
+        tasks: ['sass', 'cssmin','uncss']
+      },
+
+      js: {
+      	files: ['app/js', 'app/js/*.js', 'app/dist/js/*.js'],
+      	tasks: ['concat', 'uglify']
+      }
     },
 
     uncss: {
       dist: {
         files: {
-          'app/dist/styles/*.css': ['app/*.html']
+          'app/dist/styles/<%= pkg.name %>.css': ['app/*.html']
         }
       }
     },
@@ -88,23 +92,38 @@ module.exports = function(grunt) {
     notify_hooks: {
       options: {
         enable: true,
-        max_jshint_notifications: 5,
-      },
+        max_jshint_notifications: 5
+      }
     },
 
     jshint: {
       options: {
         jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish'),
+        reporter: require('jshint-stylish')
       },
       target: ['Gruntfile.js', 'app/js/**/*.js','test/*.js']
+    },
+
+    connect: {
+      options: {
+        port: 8000,
+        livereload: 35729,
+        hostname: 'localhost'
+      },
+      livereload: {
+        options: {
+          open: true,
+          base: 'app/'
+        }
+      }
     }
-  });
+  })
   
   grunt.task.run('notify_hooks');
 
-  grunt.registerTask('default', ['watch']);
-  grunt.registerTask('css', ['sass,cssmin,uncss']);
+  grunt.registerTask('serve', ['connect:livereload','css','js','watch']);
+  grunt.registerTask('css', ['sass','cssmin','uncss']);
+  grunt.registerTask('js', ['concat','uglify']);
   grunt.registerTask('production', ['sass,cssmin,uncss','uglify','imagemin']);
   
 };
