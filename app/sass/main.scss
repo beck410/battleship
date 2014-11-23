@@ -1,10 +1,12 @@
 /* variables */
-$grid-height: 100px;
-$grid-width: 100px;
+$grid-height: 500px;
+$grid-width: 500px;
+$grid-square-width: ($grid-width / 10);
+$grid-square-height: ($grid-height / 10);
 $grid-background: #4483B7;
+$grid-container-width: 1280px;
 
 /* imports */
-@import 'ships'
-@import 'board'
-
-
+@import 'ships';
+@import 'board';
+@import 'base';

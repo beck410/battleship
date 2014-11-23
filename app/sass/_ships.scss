@@ -1,0 +1,57 @@
+.ships {
+  span{
+    background: red;
+    margin: 20px;
+    display: inline-block;
+  }
+}
+
+.carrier-horizontal {
+  height: ($grid-square-height) + px;
+  width: ($grid-square-width * 5) + px;
+}
+
+.battleship-horizontal {
+  height: ($grid-square-height) + px;
+  width: ($grid-square-width * 4) + px;
+}
+
+.cruiser-horizontal {
+  height: ($grid-square-height) + px;
+  width: ($grid-square-width * 3) + px;
+}
+
+.submarine-horizontal {
+  height: ($grid-square-height) + px;
+  width: ($grid-square-width * 3) + px;
+}
+
+.destroyer-horizontal {  
+  height: ($grid-square-height) + px;
+  width: ($grid-square-width * 2) + px;
+}
+
+.carrier-vertical {
+  width: ($grid-square-width) + px;
+  height: ($grid-square-height * 5) + px;
+}
+
+.battleship-vertical {
+  width: ($grid-square-width) + px;
+  height: ($grid-square-height * 4) + px;
+}
+
+.cruiser-vertical {
+  width: ($grid-square-width) + px;
+  height: ($grid-square-height * 3) + px;
+}
+
+.submarine-vertical {
+  width: ($grid-square-width) + px;
+  height: ($grid-square-height * 3) + px;
+}
+
+.destroyer-vertical {  
+  width: ($grid-square-width) + px;
+  height: ($grid-square-height * 2) + px;
+}

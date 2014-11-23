@@ -1,3 +1,27 @@
-p {
-  color:black;
+.grids {
+  width: $grid-container-width;
+  margin: 0 auto;
 }
+
+.grids {
+  div {
+    height: $grid-height;
+    width: $grid-width;
+    background: $grid-background;
+    margin-top: 50px;  
+  }
+
+  .player-grid {
+    float: left;
+  }
+
+  .enemy-grid {
+    float: right;
+  }
+}
+
+
+
+
+/* .player-grid */
+/* .enemy-grid */

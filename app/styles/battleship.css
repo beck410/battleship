@@ -1,2 +1,79 @@
-p {
-  color: black; }
+/* variables */
+/* imports */
+.ships span {
+  background: red;
+  margin: 20px;
+  display: inline-block; }
+
+.carrier-horizontal {
+  height: 50pxpx;
+  width: 250pxpx; }
+
+.battleship-horizontal {
+  height: 50pxpx;
+  width: 200pxpx; }
+
+.cruiser-horizontal {
+  height: 50pxpx;
+  width: 150pxpx; }
+
+.submarine-horizontal {
+  height: 50pxpx;
+  width: 150pxpx; }
+
+.destroyer-horizontal {
+  height: 50pxpx;
+  width: 100pxpx; }
+
+.carrier-vertical {
+  width: 50pxpx;
+  height: 250pxpx; }
+
+.battleship-vertical {
+  width: 50pxpx;
+  height: 200pxpx; }
+
+.cruiser-vertical {
+  width: 50pxpx;
+  height: 150pxpx; }
+
+.submarine-vertical {
+  width: 50pxpx;
+  height: 150pxpx; }
+
+.destroyer-vertical {
+  width: 50pxpx;
+  height: 100pxpx; }
+
+.grids {
+  width: 1280px;
+  margin: 0 auto; }
+
+.grids div {
+  height: 500px;
+  width: 500px;
+  background: #4483B7;
+  margin-top: 50px; }
+.grids .player-grid {
+  float: left; }
+.grids .enemy-grid {
+  float: right; }
+
+/* .player-grid */
+/* .enemy-grid */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.cf:after {
+  clear: both; }
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1; }
