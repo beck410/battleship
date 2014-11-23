@@ -14,7 +14,7 @@ module.exports = function(grunt) {
           dest: 'app/dist/styles/',
           ext: '.min.css' 
         }]
-      },
+      }
 	},
 
     uglify: {
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'app/dist/js/<%= pkg.name %>.min.js': ['app/dist/js/<%= pkg.name %>.js'] 
+          'app/dist/js/<%= pkg.name %>.min.js': ['app/dist/js/<%= pkg.name %>.js'], 
         }
       }
     },
@@ -31,14 +31,14 @@ module.exports = function(grunt) {
     concat: {
       options: {
         seperator: ';',
-        stripBanners: true,
-        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - '+ '<% grunt.template.today("yyy-mm-dd") %>' + '*/'
+        stripBanners: true
         },
       dist: {
-        src: ['app/js/*.js'],
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - '+ '<% grunt.template.today("yyy-mm-dd") %>' + '*/',
+        src: 'app/js/*.js',
         dest: 'app/dist/js/<%= pkg.name %>.js'
-        }
-      },
+      }
+    },
 
     sass: {
       options: {
@@ -116,12 +116,27 @@ module.exports = function(grunt) {
           base: 'app/'
         }
       }
+    },
+
+    bowercopy: {
+      options: {
+        srcPrefix: 'bower_components',
+      },
+      scripts: {
+        options: {
+          destPrefix: 'app/dist/js/'
+          },
+        files: {
+          'jquery/jquery.min.js': 'jquery/dist/jquery.min.js',
+          'lodash/lodash.min.js': 'lodash/dist/lodash.min.js'
+        }
+      }
     }
   })
   
   grunt.task.run('notify_hooks');
 
-  grunt.registerTask('serve', ['connect:livereload','css','js','watch']);
+  grunt.registerTask('serve', ['concat','connect:livereload','css','js','watch']);
   grunt.registerTask('css', ['sass','cssmin','uncss']);
   grunt.registerTask('js', ['concat','uglify']);
   grunt.registerTask('production', ['sass,cssmin,uncss','uglify','imagemin']);
