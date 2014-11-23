@@ -13,6 +13,5 @@
   "undef": true,        // Require all variables be declared
   "unused": true,       // Require all variables to be used
   "strict": true,       // Require ES5 Strict mode
-  "maxlen": 120,        // Require all lines to be less than 120 characters long
   "node": true          // Defines node specific global variables
 }
