@@ -6,44 +6,44 @@
   display: inline-block; }
 
 .carrier-horizontal {
-  height: 50pxpx;
-  width: 250pxpx; }
+  height: 50px;
+  width: 250px; }
 
 .battleship-horizontal {
-  height: 50pxpx;
-  width: 200pxpx; }
+  height: 50px;
+  width: 200px; }
 
 .cruiser-horizontal {
-  height: 50pxpx;
-  width: 150pxpx; }
+  height: 50px;
+  width: 150px; }
 
 .submarine-horizontal {
-  height: 50pxpx;
-  width: 150pxpx; }
+  height: 50px;
+  width: 150px; }
 
 .destroyer-horizontal {
-  height: 50pxpx;
-  width: 100pxpx; }
+  height: 50px;
+  width: 100px; }
 
 .carrier-vertical {
-  width: 50pxpx;
-  height: 250pxpx; }
+  width: 50px;
+  height: 250px; }
 
 .battleship-vertical {
-  width: 50pxpx;
-  height: 200pxpx; }
+  width: 50px;
+  height: 200px; }
 
 .cruiser-vertical {
-  width: 50pxpx;
-  height: 150pxpx; }
+  width: 50px;
+  height: 150px; }
 
 .submarine-vertical {
-  width: 50pxpx;
-  height: 150pxpx; }
+  width: 50px;
+  height: 150px; }
 
 .destroyer-vertical {
-  width: 50pxpx;
-  height: 100pxpx; }
+  width: 50px;
+  height: 100px; }
 
 .grids {
   width: 1280px;

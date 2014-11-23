@@ -7,51 +7,51 @@
 }
 
 .carrier-horizontal {
-  height: ($grid-square-height) + px;
-  width: ($grid-square-width * 5) + px;
+  height: ($grid-square-height);
+  width: ($grid-square-width * 5);
 }
 
 .battleship-horizontal {
-  height: ($grid-square-height) + px;
-  width: ($grid-square-width * 4) + px;
+  height: ($grid-square-height);
+  width: ($grid-square-width * 4);
 }
 
 .cruiser-horizontal {
-  height: ($grid-square-height) + px;
-  width: ($grid-square-width * 3) + px;
+  height: ($grid-square-height);
+  width: ($grid-square-width * 3);
 }
 
 .submarine-horizontal {
-  height: ($grid-square-height) + px;
-  width: ($grid-square-width * 3) + px;
+  height: ($grid-square-height);
+  width: ($grid-square-width * 3);
 }
 
 .destroyer-horizontal {  
-  height: ($grid-square-height) + px;
-  width: ($grid-square-width * 2) + px;
+  height: ($grid-square-height);
+  width: ($grid-square-width * 2);
 }
 
 .carrier-vertical {
-  width: ($grid-square-width) + px;
-  height: ($grid-square-height * 5) + px;
+  width: ($grid-square-width);
+  height: ($grid-square-height * 5);
 }
 
 .battleship-vertical {
-  width: ($grid-square-width) + px;
-  height: ($grid-square-height * 4) + px;
+  width: ($grid-square-width);
+  height: ($grid-square-height * 4);
 }
 
 .cruiser-vertical {
-  width: ($grid-square-width) + px;
-  height: ($grid-square-height * 3) + px;
+  width: ($grid-square-width);
+  height: ($grid-square-height * 3);
 }
 
 .submarine-vertical {
-  width: ($grid-square-width) + px;
-  height: ($grid-square-height * 3) + px;
+  width: ($grid-square-width);
+  height: ($grid-square-height * 3);
 }
 
 .destroyer-vertical {  
-  width: ($grid-square-width) + px;
-  height: ($grid-square-height * 2) + px;
+  width: ($grid-square-width);
+  height: ($grid-square-height * 2);
 }
