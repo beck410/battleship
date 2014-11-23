@@ -47,7 +47,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'app/styles/<%= pkg.name %>.css': 'app/sass/*.scss'
+          'app/styles/<%= pkg.name %>.css': 'app/sass/main.scss'
         }  
       }
     },
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },
-      target: ['Gruntfile.js', 'app/js/**/*.js','test/*.js']
+      files: ['Gruntfile.js', 'app/js/**/*.js','test/*.js']
     },
 
     connect: {
