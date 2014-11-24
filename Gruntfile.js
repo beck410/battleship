@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+  module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
@@ -128,7 +128,8 @@ module.exports = function(grunt) {
           },
         files: {
           'jquery/jquery.min.js': 'jquery/dist/jquery.min.js',
-          'lodash/lodash.min.js': 'lodash/dist/lodash.min.js'
+          'lodash/lodash.min.js': 'lodash/dist/lodash.min.js',
+          'jqueryui/jquery-ui.min.js': 'jqueryui/jquery-ui.min.js'
         }
       }
     }
