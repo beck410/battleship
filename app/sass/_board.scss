@@ -1,6 +1,5 @@
 .grids {
   width: $grid-container-width;
-  margin: 0 auto;
 }
 
 .grids {
@@ -8,7 +7,7 @@
     height: $grid-height;
     width: $grid-width;
     background: $grid-background;
-    margin-top: 50px;  
+    margin-top: 50px 100px;
   }
 
   .player-grid {

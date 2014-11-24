@@ -22,8 +22,7 @@
 
 .ships span {
   background: red;
-  margin: 20px;
-  display: inline-block; }
+  position: absolute; }
 
 .carrier-horizontal {
   height: 50px;
@@ -73,14 +72,13 @@
   padding-top: 10px; }
 
 .grids {
-  width: 1280px;
-  margin: 0 auto; }
+  width: 1280px; }
 
 .grids div {
   height: 500px;
   width: 500px;
   background: #4483B7;
-  margin-top: 50px; }
+  margin-top: 50px 100px; }
 .grids .player-grid {
   float: left; }
 .grids .enemy-grid {
