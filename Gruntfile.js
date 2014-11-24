@@ -124,12 +124,13 @@
       },
       scripts: {
         options: {
-          destPrefix: 'app/dist/js/'
+          destPrefix: 'app/dist/'
           },
         files: {
-          'jquery/jquery.min.js': 'jquery/dist/jquery.min.js',
-          'lodash/lodash.min.js': 'lodash/dist/lodash.min.js',
-          'jqueryui/jquery-ui.min.js': 'jqueryui/jquery-ui.min.js'
+          'js/jquery/jquery.min.js': 'jquery/dist/jquery.min.js',
+          'js/lodash/lodash.min.js': 'lodash/dist/lodash.min.js',
+          'js/jqueryui/jquery-ui.min.js': 'jqueryui/jquery-ui.min.js',
+          'styles/normalize.css' : 'normalize.css/normalize.css'
         }
       }
     }
