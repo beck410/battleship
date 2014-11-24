@@ -1,4 +1,5 @@
-;(function(){ 
+;(function(){
+ 'use strict'; 
   $('.ship').click(function(){
     $('.ship').removeClass('selected');
     $(this).addClass('selected');
@@ -15,9 +16,17 @@
   $('.player-grid').droppable();
 
   //remove draggable when readyFire clicked
-  $('#shipsReady').click(function(){
-    $('.ship').draggable( "destroy" );
-  });
+   $('#shipsReady').click(function(){
+     shipArray();
+     $('.ship').draggable( "destroy" );
+   });
+
+  function shipArray() {
+    var shipPositions = [];
+    $('.ship').each(function(ship){
+       var position = $(this).position();
+       shipPositions.push(position);
+     })
+    console.log(shipPositions)
+  }
 })();
-
-

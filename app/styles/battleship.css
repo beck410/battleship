@@ -20,9 +20,18 @@
 .cf {
   *zoom: 1; }
 
+.ships {
+  position: relative;
+  height: 300px;
+  width: 800px;
+  float: left; }
+
 .ships span {
   background: red;
   position: absolute; }
+
+.start-buttons {
+  width: 100px; }
 
 .carrier-horizontal {
   height: 50px;
