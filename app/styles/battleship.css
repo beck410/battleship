@@ -1,7 +1,9 @@
 /* variables */
 /* imports */
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  border-collapse: collapse;
+  border-spacing: 0; }
 
 .cf:before,
 .cf:after {
@@ -81,17 +83,19 @@
   padding-top: 10px; }
 
 .grids {
-  width: 1280px; }
-
-.grids div {
-  height: 500px;
-  width: 500px;
-  background: #4483B7;
-  margin-top: 50px 100px; }
-.grids .player-grid {
-  float: left; }
-.grids .enemy-grid {
-  float: right; }
+  /*  width: $grid-container-width; */ }
+  .grids .player-grid {
+    float: left; }
+    .grids .player-grid table {
+      width: 500px;
+      height: 500px; }
+    .grids .player-grid td {
+      width: 50px;
+      height: 50px;
+      background: blue;
+      border: none; }
+  .grids .enemy-grid {
+    float: right; }
 
 /* .player-grid */
 /* .enemy-grid */

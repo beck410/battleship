@@ -1,23 +1,28 @@
 .grids {
-  width: $grid-container-width;
-}
-
-.grids {
-  div {
-    height: $grid-height;
-    width: $grid-width;
-    background: $grid-background;
-    margin-top: 50px 100px;
-  }
+/*  width: $grid-container-width; */
 
   .player-grid {
     float: left;
+
+    table {
+      width: $grid-height;
+      height: $grid-width;
+    }
+
+    td{
+      width: 50px;
+      height: 50px;
+      background: blue;
+      border: none;
+    }
   }
 
   .enemy-grid {
     float: right;
   }
 }
+
+
 
 
 

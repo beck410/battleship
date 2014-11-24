@@ -13,7 +13,7 @@
   })
 
   $('.ship').draggable({ grid: [50,50], revert: "invalid"});
-  $('.player-grid').droppable();
+  $('.player-grid table').droppable();
 
   //remove draggable when readyFire clicked
    $('#shipsReady').click(function(){
