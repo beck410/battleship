@@ -23,20 +23,26 @@
       grid: [50,50],
       revert: 'invalid',
       snap: 'td',
-      handle: '#arrow'
+      handle: '#arrow',
     });
 
     $('.player-grid table td').droppable({
       greedy: true,
       drop: function(event, ui){
         var shipType = findShipType(ui.draggable);
-        console.log(shipType);
-        console.log(ui.draggable)
+        $('player-grid table td').each(function(cell){
+             if(cell.hasClass(shipType)){
+               cell.removeClass('hasShip')
+             }
+         })
+        console.log($(this))
         $(this).addClass('hasShip');
+        setShipNeighbors(shipType);
       },
       out: function(){
         $(this).removeClass('hasShip');
-      }
+      },
+      tolerance: 'pointer'
     });
 
   //main function
@@ -54,5 +60,10 @@
       }
     });
     return shipClass;
+  }
+
+  function setShipNeighbors(ship){
+    console.log(ship);
+    //switch statement testing if ship equals shipname-orientation run ship's neighbour fn and add has class to them
   }
 })();
