@@ -3,10 +3,12 @@
 
   .player-grid {
     float: left;
+   /* margin: 20px 50px; */
 
     table {
       width: $grid-height;
       height: $grid-width;
+      position: relative;
     }
 
     td{

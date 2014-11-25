@@ -28,9 +28,11 @@
   width: 800px;
   float: left; }
 
-.ships span {
+.ship {
   background: red;
-  position: absolute; }
+  position: absolute;
+  border: 1px solid black;
+  margin-top: -25px; }
 
 .start-buttons {
   width: 100px; }
@@ -85,10 +87,12 @@
 .grids {
   /*  width: $grid-container-width; */ }
   .grids .player-grid {
-    float: left; }
+    float: left;
+    /* margin: 20px 50px; */ }
     .grids .player-grid table {
       width: 500px;
-      height: 500px; }
+      height: 500px;
+      position: relative; }
     .grids .player-grid td {
       width: 50px;
       height: 50px;
