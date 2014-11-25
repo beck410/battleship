@@ -8,25 +8,27 @@
   $('#rotate').click(function(){
   var clickedShip = $('.selected');
   var dataShip = clickedShip.attr('data-ship');
-  
+
   clickedShip.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
   })
 
-  $('.ship').draggable({ grid: [50,50], revert: "invalid"});
-  $('.player-grid table').droppable();
+  $('.ship').draggable({ 
+    grid: [50,50],
+    revert: 'invalid',
+    snap: 'td',
+  });
+  $('.player-grid table td').droppable({
+    drop: function(event, ui){
+      $(this).addClass('hasShip');
+    },
+    out: function(event, ui){
+      $(this).removeClass('hasShip')
+    }
+  });
 
   //remove draggable when readyFire clicked
    $('#shipsReady').click(function(){
      shipArray();
-     $('.ship').draggable( "destroy" );
+     $('.ship').draggable('destroy');
    });
-
-  function shipArray() {
-    var shipPositions = [];
-    $('.ship').each(function(ship){
-       var position = $(this).position();
-       shipPositions.push(position);
-     })
-    console.log(shipPositions)
-  }
 })();
