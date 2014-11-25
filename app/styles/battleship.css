@@ -93,11 +93,23 @@
   /*  width: $grid-container-width; */ }
   .grids .player-grid {
     float: left;
-    /* margin: 20px 50px; */ }
+    margin-top: 20px;
+    margin-left: 20px; }
+    .grids .player-grid ul {
+      float: right;
+      position: relative; }
+      .grids .player-grid ul li {
+        padding-top: 55px;
+        position: relative;
+        list-style-type: none; }
+        .grids .player-grid ul li div {
+          z-index: 999;
+          margin-top: -25px; }
     .grids .player-grid table {
       width: 500px;
       height: 500px;
-      position: relative; }
+      position: relative;
+      float: left; }
     .grids .player-grid td {
       width: 50px;
       height: 50px;
