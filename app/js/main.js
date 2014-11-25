@@ -1,6 +1,6 @@
 ;(function(){
  'use strict'; 
-
+  //jshint jquery: true
   $().ready(function(){
     //click events
     $('.ship').click(function(){
@@ -30,9 +30,10 @@
       greedy: true,
       drop: function(event, ui){
         var shipType = findShipType(ui.draggable);
+        var td = $(this)
         $('.player-grid td').removeClass(shipType);
-        $(this).addClass(shipType);
-        setShipNeighbors(shipType);
+        td.addClass(shipType);
+        setShipSections(shipType,td);
       },
       out: function(){
         $(this).removeClass('hasShip');
@@ -57,7 +58,29 @@
     return shipClass;
   }
 
-  function setShipNeighbors(ship){
+  function setShipSections(ship){
     //switch statement testing if ship equals shipname-orientation run ship's neighbour fn and add has class to them
+    switch (ship, frontOfShip){
+      case 'carrier-horizontal':
+      case 'carrier-vertical':
+        carrierSections(frontOfShip);
+       break;
+      case 'battleship-horizontal':
+      case 'battleship-vertical':
+        battleshipSections(frontOfShip);
+        break;
+      case 'cruiser-horizontal':
+      case 'cruiser-vertical':
+       cruiserSections(frontOfShip);
+        break;
+      case 'submarine-horizontal':
+      case 'submarine-vertical':
+       submarineSections(frontOfShip);
+       break;
+      case 'destroyer-horizontal':
+      case 'destroyer-vertical':
+       submarineSections(frontOfShip);
+        break;
+    }
   }
 })();
