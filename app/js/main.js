@@ -30,13 +30,8 @@
       greedy: true,
       drop: function(event, ui){
         var shipType = findShipType(ui.draggable);
-        $('player-grid table td').each(function(cell){
-             if(cell.hasClass(shipType)){
-               cell.removeClass('hasShip')
-             }
-         })
-        console.log($(this))
-        $(this).addClass('hasShip');
+        $('.player-grid td').removeClass(shipType);
+        $(this).addClass(shipType);
         setShipNeighbors(shipType);
       },
       out: function(){
@@ -63,7 +58,6 @@
   }
 
   function setShipNeighbors(ship){
-    console.log(ship);
     //switch statement testing if ship equals shipname-orientation run ship's neighbour fn and add has class to them
   }
 })();
