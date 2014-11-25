@@ -22,12 +22,14 @@
     grid: [50,50],
     revert: 'invalid',
     snap: 'td',
+    handle: '#arrow'
   });
   $('.player-grid table td').droppable({
     greedy: true,
     drop: function(event, ui){
       var shipType = findShipType(ui.draggable);
       console.log(shipType);
+      console.log($(this));
       $(this).addClass('hasShip');
     },
     out: function(){
