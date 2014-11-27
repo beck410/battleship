@@ -25,4 +25,13 @@
       assert.equal(splitShipType(ship10), 'destroyer');
     });
   });
+
+  describe('find ship sections',function(){ 
+    it('should return carrier-horizontal neigbours', function(){
+      assert.deepEqual(createShipSectionArray(5,'horizontal',1), [1,2,3,4,5]);
+    });
+    it('should return carrier-vertical neigbours', function(){
+      assert.deepEqual(createShipSectionArray(5,'vertical', 1), [1,11,21,31,41,51]);
+    })
+  });
 })();
