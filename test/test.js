@@ -1,14 +1,28 @@
 /* global describe, it, assert */
 ;(function(){
   'use strict';
-   describe('find ship type(class)',function(){
-     var draggable1 = [<div data-ship="carrier "class="cruiser-horizontal ship ui-draggable ui-draggable-dragging"></div>];
-     var draggable2= '<td class="battleship-horizontal"></td>';
-     var draggable3 = '<td class="destroyer-vertical"></td>';
-     var draggable4 = '<td class="submarine-vertical"></td>';
-     it('should print cruiser-horizontal', function(){
-       assert.equal(findShipType(draggable1[0]), 'cruiser-horizontal');
-     });
-   });
-  })();
-
+  describe('split ship name and orientation and return name',function(){
+    it('should return ships name', function(){
+      var ship1 = 'carrier-horizontal';
+      var ship2 = 'carrier-vertical';
+      var ship3 = 'battleship-horizontal';
+      var ship4 = 'battleship-vertical';
+      var ship5 = 'submarine-horizontal';
+      var ship6 = 'submarine-vertical';
+      var ship7 = 'cruiser-horizontal';
+      var ship8 = 'cruiser-vertical';
+      var ship9 = 'destroyer-horizontal';
+      var ship10 = 'destroyer-vertical';
+      assert.equal(splitShipType(ship1), 'carrier');
+      assert.equal(splitShipType(ship2), 'carrier');
+      assert.equal(splitShipType(ship3), 'battleship');
+      assert.equal(splitShipType(ship4), 'battleship');
+      assert.equal(splitShipType(ship5), 'submarine');
+      assert.equal(splitShipType(ship6), 'submarine');
+      assert.equal(splitShipType(ship7), 'cruiser');
+      assert.equal(splitShipType(ship8), 'cruiser');
+      assert.equal(splitShipType(ship9), 'destroyer');
+      assert.equal(splitShipType(ship10), 'destroyer');
+    });
+  });
+})();
