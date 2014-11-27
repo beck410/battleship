@@ -105,7 +105,7 @@
     if(shipType.indexOf('vertical') === -1){
      $('td').removeClass(shipName + '-horizontal');
      $('td').removeClass(shipName + '-vertical');
-     createShipSectionArray(sectionLength,'horizontal','position');
+     createShipSectionArray(sectionLength,'horizontal',position);
      //var neighborCells = [position, position + 1,position + 2,position + 3,position + 4];
      //  neighborCells.forEach(function(dataPosition){
      //    var n = 1;
@@ -141,7 +141,7 @@
     var sectionArray = [];
     var counter = 0;
     if(orientation === 'horizontal'){
-      while(sectionArray.length <=  shipLength ){
+      while(sectionArray.length <  shipLength ){
         var neighbor = cell + counter;
         counter ++;
         sectionArray.push(neighbor);
