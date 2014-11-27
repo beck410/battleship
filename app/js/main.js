@@ -11,10 +11,11 @@
     
     //.selected is rotated when button clicked
     $('#rotate').click(function(){
-    var clickedShip = $('.selected');
-    var dataShip = clickedShip.attr('data-ship');
-    clickedShip.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
-
+      var clickedShip = $('.selected');
+      var shipsCell = $('.dropped');
+      var dataShip = clickedShip.attr('data-ship');
+      clickedShip.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
+      shipsCell.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
     });
      
       //ui.draggable removed from ships when 'Fleet Ready' button clicked
@@ -35,8 +36,8 @@
       greedy: true,
       drop: function(event, ui){
         var shipType = findShipType(ui.draggable);
-        $('.player-grid td').removeClass(shipType);
-        $(this).addClass(shipType);
+        $('.player-grid td').removeClass(shipType + ' dropped');
+        $(this).addClass(shipType + ' dropped');
         setShipSections(shipType);
       },
       out: function(){
@@ -51,9 +52,9 @@
   function findShipType(draggable){
     var shipClasses = ['carrier-horizontal','battleship-horizontal', 'cruiser-horizontal', 'submarine-horizontal', 'destroyer-horizontal', 'carrier-vertical', 'battleship-vertical', 'cruiser-vertical','submarine-vertical', 'destroyer-vertical'];
     var shipClass;
-    shipClasses.forEach(function(className){
-      if(draggable.hasClass(className)){
-        shipClass = className;
+    shipClasses.forEach(function(ship){
+      if(draggable.hasClass(ship)){
+        shipClass = ship;
         return;
       }
     });
@@ -66,67 +67,93 @@
     var shipPosition = cell.attr('data-position');
     switch (ship){
       case 'carrier-horizontal':
+        shipSections(cell,shipPosition,ship,5);
+        break;
       case 'carrier-vertical':
-        carrierSections(cell, shipPosition);
+        shipSections();
        break;
       case 'battleship-horizontal':
+       shipSections();
       case 'battleship-vertical':
-        battleshipSections(cell, shipPosition);
+        shipSections();
         break;
       case 'cruiser-horizontal':
+        shipSections();
+        break;
       case 'cruiser-vertical':
-       cruiserSections(cell, shipPosition);
+       shipSections();
         break;
       case 'submarine-horizontal':
+       shipSections();
+       break;
       case 'submarine-vertical':
-       submarineSections(cell, shipPosition);
+       shipSections();
        break;
       case 'destroyer-horizontal':
+       shipSections();
+       break;
       case 'destroyer-vertical':
-       destroyerSections(cell, shipPosition);
+       shipSections();
         break;
     }
   }
 
   
-  function carrierSections(shipFront, position){
+  function shipSections(shipFront, position,shipType,sectionLength){
     position = +(position);
-    if(shipFront.hasClass('carrier-horizontal')){
-     $('td').removeClass('carrier-horizontal');
-      $('td').removeClass('carrier-vertical');
-      var neighborCells = [position, position + 1,position + 2,position + 3,position + 4];
-      neighborCells.forEach(function(dataPosition){
-        var n = 1;
-        var neighbor = $('td[data-position="' + dataPosition + '"]'); 
-        console.log(neighbor[0]);
-        neighbor.addClass('carrier-horizonal');
-        n++;
-       });
-      return;
-    } else if(shipFront.hasClass('carrier-vertical')){
-      $('td').removeClass('carrier-horizontal');
-      $('td').removeClass('carrier-vertical');
-      var neighborCells = [position, position + 10,position + 20,position + 30,position + 40];     
-            neighborCells.forEach(function(dataPosition){
-         var n = 1;
-         var neighbor = $('td[data-position="' + dataPosition + '"]'); 
-         console.log(neighbor[0]);
-         neighbor.addClass('carrier-vertical');
-         n++;
-         return;
-      });
+    var shipName = splitShipType(shipType);
+    if(shipType.indexOf('vertical') === -1){
+     $('td').removeClass(shipName + '-horizontal');
+     $('td').removeClass(shipName + '-vertical');
+     createShipSectionArray(sectionLength,'horizontal','position');
+     //var neighborCells = [position, position + 1,position + 2,position + 3,position + 4];
+     //  neighborCells.forEach(function(dataPosition){
+     //    var n = 1;
+     //    var neighbor = $('td[data-position="' + dataPosition + '"]'); 
+     //    console.log(neighbor[0]);
+     //    neighbor.addClass('carrier-horizonal');
+     //    n++;
+     //   }//);
+     //  return;
+    } else {      
+      console.log('vertical');
+      // $('td').removeClass('carrier-horizontal')
+      // $('td').removeClass('carrier-vertical');
+      // var neighborCells = [position, position + 10,position + 20,position + 30,position + 40];     
+      //       neighborCells.forEach(function(dataPosition){
+      //    var n = 1;
+      //    var neighbor = $('td[data-position="' + dataPosition + '"]'); 
+      //    console.log(neighbor[0]);
+      //    neighbor.addClass('carrier-vertical');
+      //    n++;
+      //    return;
+      // }//);
     }
   }
-  function battleshipSections(shipFront, position){
-    console.log(shipFront, position);
+
+  function splitShipType(shipType){
+    var shipTypeArray = shipType.split('-');
+    var shipName = shipTypeArray[0];
+    return shipName;
   }
-  function cruiserSections(shipFront, position){
-    console.log(shipFront, position);
+
+  function createShipSectionArray(shipLength, orientation, cell){
+    var sectionArray = [];
+    var counter = 0;
+    if(orientation === 'horizontal'){
+      while(sectionArray.length <=  shipLength ){
+        var neighbor = cell + counter;
+        counter ++;
+        sectionArray.push(neighbor);
+      }
+    } else {
+      while(sectionArray.length <= shipLength) {
+        var neighbor = cell + counter;
+          counter += 10;
+        sectionArray.push(neighbor);
+      }
+    }
+    return sectionArray;
   }
-  function submarineSections(shipFront, position){
-    console.log(shipFront, position);
-  }
-  function destroyerSections(shipFront, position){
-    console.log(shipFront, position);
-  }
+
 //})();
