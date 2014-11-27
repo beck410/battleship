@@ -104,8 +104,7 @@
       var neighborCells = createShipSectionArray(sectionLength, 'vertical', position); 
       removeShipClass(shipName);
       addClassToNeighbors(neighborCells,shipType);
-      return;
-    }
+      }
   }
   
   //removes ship class from td when dropped again
@@ -149,19 +148,5 @@
     }
     return sectionArray;
   }
-
-//check if any ship sections are outside grid boundary
-function checkGridBoundaries(shipSections){
-  var outsideGrid = true;
-  var n = 0;
-  while(outsideGrid === true && n<shipSections.length){
-   if(!(shipSections[n] > 0 && shipSections[n] < 101)){
-       outsideGrid = false; 
-    }
-   console.log( '"' + outsideGrid + '" ' + n + ' ' + shipSections[n]);
-   n++;
-  }
-  return outsideGrid;
-}
 
 //})();
