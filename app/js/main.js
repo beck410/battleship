@@ -36,7 +36,7 @@
       greedy: true,
       drop: function(event, ui){
         var shipType = findShipType(ui.draggable);
-        $('.player-grid td').removeClass(shipType + ' dropped');
+       $('.player-grid td').removeClass(shipType + ' dropped');
         $(this).addClass(shipType + ' dropped');
         setShipSections(shipType);
       },
@@ -70,7 +70,7 @@
         shipSections(cell,shipPosition,ship,5);
         break;
       case 'carrier-vertical':
-        shipSections();
+        shipSections(cell,shipPosition,ship,5);
        break;
       case 'battleship-horizontal':
        shipSections();
@@ -105,29 +105,28 @@
     if(shipType.indexOf('vertical') === -1){
      $('td').removeClass(shipName + '-horizontal');
      $('td').removeClass(shipName + '-vertical');
-     createShipSectionArray(sectionLength,'horizontal',position);
-     //var neighborCells = [position, position + 1,position + 2,position + 3,position + 4];
-     //  neighborCells.forEach(function(dataPosition){
-     //    var n = 1;
-     //    var neighbor = $('td[data-position="' + dataPosition + '"]'); 
-     //    console.log(neighbor[0]);
-     //    neighbor.addClass('carrier-horizonal');
-     //    n++;
-     //   }//);
-     //  return;
+     var neighborCells = createShipSectionArray(sectionLength,'horizontal', position);
+     neighborCells.forEach(function(dataPosition){
+         var n = 1;
+         var neighbor = $('td[data-position="' + dataPosition + '"]'); 
+         console.log(neighbor[0]);
+         neighbor.addClass('carrier-horizontal');
+         n++;
+        });
+       return;
     } else {      
       console.log('vertical');
-      // $('td').removeClass('carrier-horizontal')
-      // $('td').removeClass('carrier-vertical');
-      // var neighborCells = [position, position + 10,position + 20,position + 30,position + 40];     
-      //       neighborCells.forEach(function(dataPosition){
-      //    var n = 1;
-      //    var neighbor = $('td[data-position="' + dataPosition + '"]'); 
-      //    console.log(neighbor[0]);
-      //    neighbor.addClass('carrier-vertical');
-      //    n++;
-      //    return;
-      // }//);
+       $('td').removeClass(shipName + '-horizontal')
+       $('td').removeClass(shipName + '-vertical') ;
+       var neighborCells = createShipSectionArray(sectionLength, 'vertical', position); 
+            neighborCells.forEach(function(dataPosition){
+         var n = 1;
+         var neighbor = $('td[data-position="' + dataPosition + '"]'); 
+         console.log(neighbor[0]);
+         neighbor.addClass('carrier-vertical');
+         n++;
+         return;
+      });
     }
   }
 
