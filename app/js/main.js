@@ -16,6 +16,8 @@
       var dataShip = clickedShip.attr('data-ship');
       clickedShip.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
       shipsCell.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
+      var shipType = findShipType(clickedShip)
+      setShipSections(shipType);
     });
      
       //ui.draggable removed from ships when 'Fleet Ready' button clicked
@@ -74,6 +76,7 @@
        break;
       case 'battleship-horizontal':
        shipSections();
+       break;
       case 'battleship-vertical':
         shipSections();
         break;
@@ -115,8 +118,7 @@
         });
        return;
     } else {      
-      console.log('vertical');
-       $('td').removeClass(shipName + '-horizontal')
+       $('td').removeClass(shipName + '-horizontal');
        $('td').removeClass(shipName + '-vertical') ;
        var neighborCells = createShipSectionArray(sectionLength, 'vertical', position); 
             neighborCells.forEach(function(dataPosition){
