@@ -91,42 +91,47 @@
     }
   }
 
-  
+  //adds classes to ship's tds
   function shipSections(shipFront, position,shipType,sectionLength){
     position = +(position);
     var shipName = splitShipType(shipType);
     if(shipType.indexOf('vertical') === -1){
-      var n = 1;
-      $('td').removeClass(shipName + '-horizontal');
-      $('td').removeClass(shipName + '-vertical');
       var neighborCells = createShipSectionArray(sectionLength,'horizontal', position);
-      neighborCells.forEach(function(dataPosition){
-        var neighbor = $('td[data-position="' + dataPosition + '"]'); 
-        neighbor.addClass(shipName + '-horizontal');
-        n++;
-      });
+      removeShipClass(shipName);
+      addClassToNeighbors(neighborCells,shipType);
       return;
     } else {      
-       $('td').removeClass(shipName + '-horizontal');
-       $('td').removeClass(shipName + '-vertical') ;
-       var neighborCells = createShipSectionArray(sectionLength, 'vertical', position); 
-            neighborCells.forEach(function(dataPosition){
-         var n = 1;
-         var neighbor = $('td[data-position="' + dataPosition + '"]'); 
-         console.log(neighbor[0]);
-         neighbor.addClass(shipName + '-vertical');
-         n++;
-         return;
-      });
+      var neighborCells = createShipSectionArray(sectionLength, 'vertical', position); 
+      removeShipClass(shipName);
+      addClassToNeighbors(neighborCells,shipType);
+      return;
     }
   }
+  
+  //removes ship class from td when dropped again
+  function removeShipClass(ship){
+    $('td').removeClass(ship + '-horizontal');
+    $('td').removeClass(ship + '-vertical');
+  }
 
+  //adds ship class to ship's sections
+  function addClassToNeighbors(neighbors,ship){
+    var n=1;
+    neighbors.forEach(function(dataPosition){
+      var neighbor = $('td[data-position="' + dataPosition + '"]'); 
+      neighbor.addClass(ship);
+      n++;
+    });
+  }
+
+  //splits ship class into type and orientation
   function splitShipType(shipType){
     var shipTypeArray = shipType.split('-');
     var shipName = shipTypeArray[0];
     return shipName;
   }
-
+  
+  //finds ship's sections
   function createShipSectionArray(shipLength, orientation, cell){
     var sectionArray = [];
     var counter = 0;
