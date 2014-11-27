@@ -1,18 +1,14 @@
-/* global describe, it */
-
+/* global describe, it, assert */
 ;(function(){
   'use strict';
-
-  describe('base test',function(){
-    var x = 'foo';
-    it('should print out foo', function(){
-      assert.equal(x, 'foo');
-    })
-  })
-  describe('test main.js',function(){
-    it('should be bar', function(){
-      assert.equal(bar(), 'bar');
-    })
-  })
-})();
+   describe('find ship type(class)',function(){
+     var draggable1 = [<div data-ship="carrier "class="cruiser-horizontal ship ui-draggable ui-draggable-dragging"></div>];
+     var draggable2= '<td class="battleship-horizontal"></td>';
+     var draggable3 = '<td class="destroyer-vertical"></td>';
+     var draggable4 = '<td class="submarine-vertical"></td>';
+     it('should print cruiser-horizontal', function(){
+       assert.equal(findShipType(draggable1[0]), 'cruiser-horizontal');
+     });
+   });
+  })();
 
