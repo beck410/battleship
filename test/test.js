@@ -31,7 +31,30 @@
       assert.deepEqual(createShipSectionArray(5,'horizontal',1), [1,2,3,4,5]);
     });
     it('should return carrier-vertical neigbours', function(){
-      assert.deepEqual(createShipSectionArray(5,'vertical', 1), [1,11,21,31,41,51]);
+      assert.deepEqual(createShipSectionArray(5,'vertical', 1), [1,11,21,31,41]);
     })
+  });
+
+  describe('check if ship is outside boundaries',function(){
+    it('should return true',function(){
+      var shipSection1 = [1,2,3,4,5];
+      var shipSection2 = [1,11,21,31,41];
+      var shipSection3 = [40.41,42,43];
+      var shipSection4 = [97,98,99,100];
+      assert.equal(checkGridBoundaries(shipSection1),true);
+      assert.equal(checkGridBoundaries(shipSection2),true);
+      assert.equal(checkGridBoundaries(shipSection3),true);
+      assert.equal(checkGridBoundaries(shipSection4),true);
+    });
+    it('should return false', function(){
+      var shipSection5 = [-1,0,1,2];
+      var shipSection6 = [-3,-2,-1,0,1];
+      var shipSection7 = [98.99,100,101];
+      var shipSection8 = [-11,-1,11];
+      assert.equal(checkGridBoundaries(shipSection5),false);
+      assert.equal(checkGridBoundaries(shipSection6),false);
+      assert.equal(checkGridBoundaries(shipSection7),false);
+      assert.equal(checkGridBoundaries(shipSection8),false);
+    });
   });
 })();
