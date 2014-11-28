@@ -1,51 +1,50 @@
-.grids {
-/*  width: $grid-container-width; */
+body {
+  width: $grid-container-width;
+  margin: 0 auto;
+}
 
-  .player-grid {
-    float: left;
-    margin-top: 20px;
-    margin-left: 20px;
+.player-one-grids, .player-two-grids {
+  margin: 20px auto;
+  clear:both;
+  display: none;
+  
+  table {
+    width: $grid-width;
+    height: $grid-height;
+    float:left;
 
-    ul  {
-      float:right;
-      position: relative;
-
-      li{
-        padding-top: 55px;
-        position: relative;
-        list-style-type: none;
-
-        div {
-          z-index: 999;
-          margin-top: -25px;
-        }
-      }
-    }
-
-    table {
-      width: $grid-height;
-      height: $grid-width;
-      position: relative;
-      float: left;
-    }
-
-    td{
-      width: 50px;
-      height: 50px;
-      background: blue;
-      border: none;
+    td {
+      width: $grid-square-width;
+      height: $grid-square-height;
+      background: $grid-background;
     }
   }
 
-  .enemy-grid {
+  ul {
     float: right;
+    position: relative;
+    width: $grid-square-width*8;
+    
+    li {
+      padding-top: $grid-square-height + 10;
+      position: relative;
+      list-style-type: none;
+    }
+
+    div {
+      z-index: 999;
+      margin-top: -25px;
+    }
+
+  }
+
+  .player-one-grid, .player-two-grid {
+    float: left;
+  }
+
+  .enemy-one-grid, .enemy-two-grid {
+    //float: right;
   }
 }
 
 
-
-
-
-
-/* .player-grid */
-/* .enemy-grid */

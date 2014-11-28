@@ -31,11 +31,10 @@
 .ship {
   background: red;
   position: absolute;
-  border: 1px solid black;
-  margin-top: -25px; }
+  border: 1px solid black; }
   .ship span {
-    height: 40px;
-    width: 40px;
+    height: 19px;
+    width: 19px;
     background: yellow;
     display: inline-block; }
 
@@ -43,44 +42,44 @@
   width: 100px; }
 
 .carrier-horizontal {
-  height: 50px;
-  width: 250px; }
-
-.battleship-horizontal {
-  height: 50px;
-  width: 200px; }
-
-.cruiser-horizontal {
-  height: 50px;
-  width: 150px; }
-
-.submarine-horizontal {
-  height: 50px;
-  width: 150px; }
-
-.destroyer-horizontal {
-  height: 50px;
+  height: 20px;
   width: 100px; }
 
+.battleship-horizontal {
+  height: 20px;
+  width: 80px; }
+
+.cruiser-horizontal {
+  height: 20px;
+  width: 60px; }
+
+.submarine-horizontal {
+  height: 20px;
+  width: 60px; }
+
+.destroyer-horizontal {
+  height: 20px;
+  width: 40px; }
+
 .carrier-vertical {
-  width: 50px;
-  height: 250px; }
+  width: 20px;
+  height: 100px; }
 
 .battleship-vertical {
-  width: 50px;
-  height: 200px; }
+  width: 20px;
+  height: 80px; }
 
 .cruiser-vertical {
-  width: 50px;
-  height: 150px; }
+  width: 20px;
+  height: 60px; }
 
 .submarine-vertical {
-  width: 50px;
-  height: 150px; }
+  width: 20px;
+  height: 60px; }
 
 .destroyer-vertical {
-  width: 50px;
-  height: 100px; }
+  width: 20px;
+  height: 40px; }
 
 .ship-rotate {
   width: 40px;
@@ -89,34 +88,32 @@
   text-align: center;
   padding-top: 10px; }
 
-.grids {
-  /*  width: $grid-container-width; */ }
-  .grids .player-grid {
-    float: left;
-    margin-top: 20px;
-    margin-left: 20px; }
-    .grids .player-grid ul {
-      float: right;
-      position: relative; }
-      .grids .player-grid ul li {
-        padding-top: 55px;
-        position: relative;
-        list-style-type: none; }
-        .grids .player-grid ul li div {
-          z-index: 999;
-          margin-top: -25px; }
-    .grids .player-grid table {
-      width: 500px;
-      height: 500px;
-      position: relative;
-      float: left; }
-    .grids .player-grid td {
-      width: 50px;
-      height: 50px;
-      background: blue;
-      border: none; }
-  .grids .enemy-grid {
-    float: right; }
+body {
+  width: 1280px;
+  margin: 0 auto; }
 
-/* .player-grid */
-/* .enemy-grid */
+.player-one-grids, .player-two-grids {
+  margin: 20px auto;
+  clear: both;
+  display: none; }
+  .player-one-grids table, .player-two-grids table {
+    width: 200px;
+    height: 200px;
+    float: left; }
+    .player-one-grids table td, .player-two-grids table td {
+      width: 20px;
+      height: 20px;
+      background: #4483B7; }
+  .player-one-grids ul, .player-two-grids ul {
+    float: right;
+    position: relative;
+    width: 160px; }
+    .player-one-grids ul li, .player-two-grids ul li {
+      padding-top: 30px;
+      position: relative;
+      list-style-type: none; }
+    .player-one-grids ul div, .player-two-grids ul div {
+      z-index: 999;
+      margin-top: -25px; }
+  .player-one-grids .player-one-grid, .player-one-grids .player-two-grid, .player-two-grids .player-one-grid, .player-two-grids .player-two-grid {
+    float: left; }

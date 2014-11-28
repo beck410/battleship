@@ -8,8 +8,9 @@
 <link rel="stylesheet" href="styles/battleship.css" />
 </head>
 <body>
-<section class="grids cf">
-  <div class="player-grid">
+<button id="player-one">Join Game</button>
+<section class="player-one-grids grids cf">
+    <div class="player-one-grid">
     <ul>
       <li><div data-ship='carrier' class="carrier-horizontal ship"><span id="arrow"><span></div></li>
       <li><div data-ship='battleship' class="battleship-horizontal ship"><span id="arrow"></span></div></li>
@@ -139,17 +140,402 @@
         <td data-position="100"></td>
       </tr>
     </table>
-  </div>
-  <div class="enemy-grid">
-  </div>
-</section>
-<section class="start-buttons">
-  <button id="rotate">R</button>
-  <button id="shipsReady">Fleet Ready!</button>
-</section>
+    <article class="start-buttons">
+        <button id="rotate">R</button>
+        <button id="shipsReady">Fleet Ready!</button>
+    </article>
+    </div>  
+    <div class="enemy-one-grid">
+    <table>
+      <tr>
+        <td data-position="1"></td>
+        <td data-position="2"></td>
+        <td data-position="3"></td>
+        <td data-position="4"></td>
+        <td data-position="5"></td>
+        <td data-position="6"></td>
+        <td data-position="7"></td>
+        <td data-position="8"></td>
+        <td data-position="9"></td>
+        <td data-position="10"></td>
+      </tr>
+      <tr>
+        <td data-position="11"></td>
+        <td data-position="12"></td>
+        <td data-position="13"></td>
+        <td data-position="14"></td>
+        <td data-position="15"></td>
+        <td data-position="16"></td>
+        <td data-position="17"></td>
+        <td data-position="18"></td>
+        <td data-position="19"></td>
+        <td data-position="20"></td>
+      </tr>
+      <tr>
+        <td data-position="21"></td>
+        <td data-position="22"></td>
+        <td data-position="23"></td>
+        <td data-position="24"></td>
+        <td data-position="25"></td>
+        <td data-position="26"></td>
+        <td data-position="27"></td>
+        <td data-position="28"></td>
+        <td data-position="29"></td>
+        <td data-position="30"></td>
+      </tr>
+      <tr>
+        <td data-position="31"></td>
+        <td data-position="32"></td>
+        <td data-position="33"></td>
+        <td data-position="34"></td>
+        <td data-position="35"></td>
+        <td data-position="36"></td>
+        <td data-position="37"></td>
+        <td data-position="38"></td>
+        <td data-position="39"></td>
+        <td data-position="40"></td>
+      </tr>
+      <tr>
+        <td data-position="41"></td>
+        <td data-position="42"></td>
+        <td data-position="43"></td>
+        <td data-position="44"></td>
+        <td data-position="45"></td>
+        <td data-position="46"></td>
+        <td data-position="47"></td>
+        <td data-position="48"></td>
+        <td data-position="49"></td>
+        <td data-position="50"></td>
+      </tr>
+      <tr>
+        <td data-position="51"></td>
+        <td data-position="52"></td>
+        <td data-position="53"></td>
+        <td data-position="54"></td>
+        <td data-position="55"></td>
+        <td data-position="56"></td>
+        <td data-position="57"></td>
+        <td data-position="58"></td>
+        <td data-position="59"></td>
+        <td data-position="60"></td>
+      </tr>
+      <tr>
+        <td data-position="61"></td>
+        <td data-position="62"></td>
+        <td data-position="63"></td>
+        <td data-position="64"></td>
+        <td data-position="65"></td>
+        <td data-position="66"></td>
+        <td data-position="67"></td>
+        <td data-position="68"></td>
+        <td data-position="69"></td>
+        <td data-position="70"></td>
+      </tr>
+      <tr>
+        <td data-position="71"></td>
+        <td data-position="72"></td>
+        <td data-position="73"></td>
+        <td data-position="74"></td>
+        <td data-position="75"></td>
+        <td data-position="76"></td>
+        <td data-position="77"></td>
+        <td data-position="78"></td>
+        <td data-position="79"></td>
+        <td data-position="80"></td>
+      </tr>
+      <tr>
+        <td data-position="81"></td>
+        <td data-position="82"></td>
+        <td data-position="83"></td>
+        <td data-position="84"></td>
+        <td data-position="85"></td>
+        <td data-position="86"></td>
+        <td data-position="87"></td>
+        <td data-position="88"></td>
+        <td data-position="89"></td>
+        <td data-position="90"></td>
+      </tr>
+      <tr>
+        <td data-position="91"></td>
+        <td data-position="92"></td>
+        <td data-position="93"></td>
+        <td data-position="94"></td>
+        <td data-position="95"></td>
+        <td data-position="96"></td>
+        <td data-position="97"></td>
+        <td data-position="98"></td>
+        <td data-position="99"></td>
+        <td data-position="100"></td>
+      </tr>
+    </table>
+    </div>
+  </section>
+  <button id="player-two">Join Game</button> 
+<section class="player-two-grids grids cf">
+    <div class="player-two-grid">
+    <ul class="cf">
+      <li><div data-ship='carrier' class="carrier-horizontal ship"><span id="arrow"><span></div></li>
+      <li><div data-ship='battleship' class="battleship-horizontal ship"><span id="arrow"></span></div></li>
+      <li><div data-ship='cruiser' class="cruiser-horizontal ship"><span id="arrow"></span></div></li>
+      <li><div data-ship='submarine' class="submarine-horizontal ship"><span id="arrow"></span></div></li>
+      <li><div data-ship='destroyer' class="destroyer-horizontal ship"><span id="arrow"></span></div></li>
+    </ul>
+    <table>
+      <tr>
+        <td data-position="1"></td>
+        <td data-position="2"></td>
+        <td data-position="3"></td>
+        <td data-position="4"></td>
+        <td data-position="5"></td>
+        <td data-position="6"></td>
+        <td data-position="7"></td>
+        <td data-position="8"></td>
+        <td data-position="9"></td>
+        <td data-position="10"></td>
+      </tr>
+      <tr>
+        <td data-position="11"></td>
+        <td data-position="12"></td>
+        <td data-position="13"></td>
+        <td data-position="14"></td>
+        <td data-position="15"></td>
+        <td data-position="16"></td>
+        <td data-position="17"></td>
+        <td data-position="18"></td>
+        <td data-position="19"></td>
+        <td data-position="20"></td>
+      </tr>
+      <tr>
+        <td data-position="21"></td>
+        <td data-position="22"></td>
+        <td data-position="23"></td>
+        <td data-position="24"></td>
+        <td data-position="25"></td>
+        <td data-position="26"></td>
+        <td data-position="27"></td>
+        <td data-position="28"></td>
+        <td data-position="29"></td>
+        <td data-position="30"></td>
+      </tr>
+      <tr>
+        <td data-position="31"></td>
+        <td data-position="32"></td>
+        <td data-position="33"></td>
+        <td data-position="34"></td>
+        <td data-position="35"></td>
+        <td data-position="36"></td>
+        <td data-position="37"></td>
+        <td data-position="38"></td>
+        <td data-position="39"></td>
+        <td data-position="40"></td>
+      </tr>
+      <tr>
+        <td data-position="41"></td>
+        <td data-position="42"></td>
+        <td data-position="43"></td>
+        <td data-position="44"></td>
+        <td data-position="45"></td>
+        <td data-position="46"></td>
+        <td data-position="47"></td>
+        <td data-position="48"></td>
+        <td data-position="49"></td>
+        <td data-position="50"></td>
+      </tr>
+      <tr>
+        <td data-position="51"></td>
+        <td data-position="52"></td>
+        <td data-position="53"></td>
+        <td data-position="54"></td>
+        <td data-position="55"></td>
+        <td data-position="56"></td>
+        <td data-position="57"></td>
+        <td data-position="58"></td>
+        <td data-position="59"></td>
+        <td data-position="60"></td>
+      </tr>
+      <tr>
+        <td data-position="61"></td>
+        <td data-position="62"></td>
+        <td data-position="63"></td>
+        <td data-position="64"></td>
+        <td data-position="65"></td>
+        <td data-position="66"></td>
+        <td data-position="67"></td>
+        <td data-position="68"></td>
+        <td data-position="69"></td>
+        <td data-position="70"></td>
+      </tr>
+      <tr>
+        <td data-position="71"></td>
+        <td data-position="72"></td>
+        <td data-position="73"></td>
+        <td data-position="74"></td>
+        <td data-position="75"></td>
+        <td data-position="76"></td>
+        <td data-position="77"></td>
+        <td data-position="78"></td>
+        <td data-position="79"></td>
+        <td data-position="80"></td>
+      </tr>
+      <tr>
+        <td data-position="81"></td>
+        <td data-position="82"></td>
+        <td data-position="83"></td>
+        <td data-position="84"></td>
+        <td data-position="85"></td>
+        <td data-position="86"></td>
+        <td data-position="87"></td>
+        <td data-position="88"></td>
+        <td data-position="89"></td>
+        <td data-position="90"></td>
+      </tr>
+      <tr>
+        <td data-position="91"></td>
+        <td data-position="92"></td>
+        <td data-position="93"></td>
+        <td data-position="94"></td>
+        <td data-position="95"></td>
+        <td data-position="96"></td>
+        <td data-position="97"></td>
+        <td data-position="98"></td>
+        <td data-position="99"></td>
+        <td data-position="100"></td>
+      </tr>
+    </table>
+    <article class="start-buttons">
+        <button id="rotate">R</button>
+        <button id="shipsReady">Fleet Ready!</button>
+    </article>
+    </div>  
+    <div class="enemy-two-grid">
+    <table>
+      <tr>
+        <td data-position="1"></td>
+        <td data-position="2"></td>
+        <td data-position="3"></td>
+        <td data-position="4"></td>
+        <td data-position="5"></td>
+        <td data-position="6"></td>
+        <td data-position="7"></td>
+        <td data-position="8"></td>
+        <td data-position="9"></td>
+        <td data-position="10"></td>
+      </tr>
+      <tr>
+        <td data-position="11"></td>
+        <td data-position="12"></td>
+        <td data-position="13"></td>
+        <td data-position="14"></td>
+        <td data-position="15"></td>
+        <td data-position="16"></td>
+        <td data-position="17"></td>
+        <td data-position="18"></td>
+        <td data-position="19"></td>
+        <td data-position="20"></td>
+      </tr>
+      <tr>
+        <td data-position="21"></td>
+        <td data-position="22"></td>
+        <td data-position="23"></td>
+        <td data-position="24"></td>
+        <td data-position="25"></td>
+        <td data-position="26"></td>
+        <td data-position="27"></td>
+        <td data-position="28"></td>
+        <td data-position="29"></td>
+        <td data-position="30"></td>
+      </tr>
+      <tr>
+        <td data-position="31"></td>
+        <td data-position="32"></td>
+        <td data-position="33"></td>
+        <td data-position="34"></td>
+        <td data-position="35"></td>
+        <td data-position="36"></td>
+        <td data-position="37"></td>
+        <td data-position="38"></td>
+        <td data-position="39"></td>
+        <td data-position="40"></td>
+      </tr>
+      <tr>
+        <td data-position="41"></td>
+        <td data-position="42"></td>
+        <td data-position="43"></td>
+        <td data-position="44"></td>
+        <td data-position="45"></td>
+        <td data-position="46"></td>
+        <td data-position="47"></td>
+        <td data-position="48"></td>
+        <td data-position="49"></td>
+        <td data-position="50"></td>
+      </tr>
+      <tr>
+        <td data-position="51"></td>
+        <td data-position="52"></td>
+        <td data-position="53"></td>
+        <td data-position="54"></td>
+        <td data-position="55"></td>
+        <td data-position="56"></td>
+        <td data-position="57"></td>
+        <td data-position="58"></td>
+        <td data-position="59"></td>
+        <td data-position="60"></td>
+      </tr>
+      <tr>
+        <td data-position="61"></td>
+        <td data-position="62"></td>
+        <td data-position="63"></td>
+        <td data-position="64"></td>
+        <td data-position="65"></td>
+        <td data-position="66"></td>
+        <td data-position="67"></td>
+        <td data-position="68"></td>
+        <td data-position="69"></td>
+        <td data-position="70"></td>
+      </tr>
+      <tr>
+        <td data-position="71"></td>
+        <td data-position="72"></td>
+        <td data-position="73"></td>
+        <td data-position="74"></td>
+        <td data-position="75"></td>
+        <td data-position="76"></td>
+        <td data-position="77"></td>
+        <td data-position="78"></td>
+        <td data-position="79"></td>
+        <td data-position="80"></td>
+      </tr>
+      <tr>
+        <td data-position="81"></td>
+        <td data-position="82"></td>
+        <td data-position="83"></td>
+        <td data-position="84"></td>
+        <td data-position="85"></td>
+        <td data-position="86"></td>
+        <td data-position="87"></td>
+        <td data-position="88"></td>
+        <td data-position="89"></td>
+        <td data-position="90"></td>
+      </tr>
+      <tr>
+        <td data-position="91"></td>
+        <td data-position="92"></td>
+        <td data-position="93"></td>
+        <td data-position="94"></td>
+        <td data-position="95"></td>
+        <td data-position="96"></td>
+        <td data-position="97"></td>
+        <td data-position="98"></td>
+        <td data-position="99"></td>
+        <td data-position="100"></td>
+      </tr>
+    </table>
+    </div>
+  </section>
 <script src="dist/js/jquery/jquery.min.js" type="text/javascript"></script>
 <script src="dist/js/jqueryui/jquery-ui.min.js" type="text/javascript"></script>
 <script src="dist/js/lodash/lodash.min.js" type="text/javascript"></script>
 <script src="js/main.js" type="text/javascript"></script>
+<script src="js/start.js" type="text/javascript"></script>
 </body>
 </html>

@@ -27,18 +27,18 @@
     
      //adds ui.draggable to ships
     $('.ship').draggable({ 
-      grid: [50,50],
+      grid: [20,20],
       revert: 'invalid',
       snap: 'td',
       handle: '#arrow',
     });
     
     //adds ui.droppable to table's td
-    $('.player-grid table td').droppable({
+    $('.grids table td').droppable({
       greedy: true,
       drop: function(event, ui){
         var shipType = findShipType(ui.draggable);
-        $('.player-grid td').removeClass(shipType + ' dropped');
+        $('.grids td').removeClass(shipType + ' dropped');
         $(this).addClass(shipType + ' dropped');
         setShipSections(shipType);
       },
@@ -148,5 +148,17 @@
     }
     return sectionArray;
   }
-
+  
+  //check if any ship sections are outside grid boundary - NOT USED YET
+    function checkGridBoundaries(shipSections){
+    var outsideGrid = true;
+    var n = 0;
+    while(outsideGrid === true && n<shipSections.length){
+      if(!(shipSections[n] > 0 && shipSections[n] < 101)){
+        outsideGrid = false; 
+      }
+    n++;
+    }
+    return outsideGrid;
+  }
 //})();
