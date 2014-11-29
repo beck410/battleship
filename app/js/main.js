@@ -1,25 +1,30 @@
 ;(function(){
   'use strict';
   //jshint jquery: true
+  //global vars
+  var readyCounter = 0;
   $().ready(function(){
-
     //click events
     //shows player one grids & runs start functions
     $('#player-one').click(function(){
+      $('#player-one').css('display','none');
       var playerOneGrids = '.player-one-grids';
       $(playerOneGrids).css('display','block');
       selectClickedShip(playerOneGrids);
       shipsDraggable(playerOneGrids);
       rotateShips(playerOneGrids);
+      readyCounter ++;
     });
 
     //shows player two grids & runs start Functions
     $('#player-two').click(function(){
+      $('#player-two').css('display','none')
       var playerTwoGrids = '.player-two-grids';
       $(playerTwoGrids).css('display','block');
       selectClickedShip(playerTwoGrids);
       shipsDraggable(playerTwoGrids);
       rotateShips(playerTwoGrids);
+      readyCounter ++;
     });
   });
 
@@ -61,6 +66,9 @@
     //ships not draggable when 'Fleet ready' clicked
     $(playerGrid + ' #shipsReady').click(function(){
       $(playerGrid + ' .ship').draggable('destroy');
+      $(playerGrid + ' .start-buttons').css('display','none')
+      if(readyCounter === 2){
+      }
     });
   }
 
@@ -72,7 +80,6 @@
       var dataShip = clickedShip.attr('data-ship');
       clickedShip.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
       shipsCell.toggleClass(dataShip + '-horizontal').toggleClass(dataShip + '-vertical');
-      //console.log(clickedShip)
       var shipType = findShipType(clickedShip);
       setShipSections(playerGrid, shipType);
     });
