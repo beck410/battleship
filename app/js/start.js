@@ -37,7 +37,7 @@
 
     //adds ui.draggable to ships
     $(playerGrid + ' .ship').draggable({
-      grid: [20,20],
+      grid: [40,40],
       revert: 'invalid',
       snap: 'td',
       handle: '#arrow'
@@ -50,7 +50,7 @@
         var shipType = findShipType(ui.draggable);
         $(playerGrid + ' td').removeClass(shipType + ' dropped');
         $(this).addClass(shipType + ' dropped');
-        //setShipSections(shipType);
+        setShipSections(playerGrid,shipType);
       },
       out: function(){
         $(this).removeClass('hasShip');
@@ -92,4 +92,33 @@
     return shipClass;
   }
 
+  //checks ship's type class and runs its function to add all parts of ship
+    function setShipSections(playerGrid, ship){
+      var cell = $(playerGrid + ' td.' + ship);
+      var shipPosition = cell.attr('data-position');
+      console.log(cell);
+      console.log(shipPosition);
+      // switch (ship){
+      //   case 'carrier-horizontal':
+      //   case 'carrier-vertical':
+      //     shipSections(cell,shipPosition,ship,5);
+      //     break;
+      //   case 'battleship-horizontal':
+      //   case 'battleship-vertical':
+      //     shipSections(cell,shipPosition,ship,4);
+      //     break;
+      //   case 'cruiser-horizontal':
+      //   case 'cruiser-vertical':
+      //     shipSections(cell,shipPosition,ship,3);
+      //     break;
+      //   case 'submarine-horizontal':
+      //   case 'submarine-vertical':
+      //     shipSections(cell,shipPosition,ship,3);
+      //     break;
+      //   case 'destroyer-horizontal':
+      //   case 'destroyer-vertical':
+      //     shipSections(cell,shipPosition,ship,2);
+      //     break;
+      // }
+    }
 })();

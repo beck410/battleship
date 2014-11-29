@@ -22,19 +22,13 @@
 .cf {
   *zoom: 1; }
 
-.ships {
-  position: relative;
-  height: 300px;
-  width: 800px;
-  float: left; }
-
 .ship {
   background: red;
   position: absolute;
   border: 1px solid black; }
   .ship span {
-    height: 19px;
-    width: 19px;
+    height: 35px;
+    width: 35px;
     background: yellow;
     display: inline-block; }
 
@@ -42,44 +36,44 @@
   width: 100px; }
 
 .carrier-horizontal {
-  height: 20px;
-  width: 100px; }
+  height: 40px;
+  width: 200px; }
 
 .battleship-horizontal {
-  height: 20px;
-  width: 80px; }
+  height: 40px;
+  width: 160px; }
 
 .cruiser-horizontal {
-  height: 20px;
-  width: 60px; }
+  height: 40px;
+  width: 120px; }
 
 .submarine-horizontal {
-  height: 20px;
-  width: 60px; }
+  height: 40px;
+  width: 120px; }
 
 .destroyer-horizontal {
-  height: 20px;
-  width: 40px; }
+  height: 40px;
+  width: 80px; }
 
 .carrier-vertical {
-  width: 20px;
-  height: 100px; }
+  width: 40px;
+  height: 200px; }
 
 .battleship-vertical {
-  width: 20px;
-  height: 80px; }
+  width: 40px;
+  height: 160px; }
 
 .cruiser-vertical {
-  width: 20px;
-  height: 60px; }
+  width: 40px;
+  height: 120px; }
 
 .submarine-vertical {
-  width: 20px;
-  height: 60px; }
+  width: 40px;
+  height: 120px; }
 
 .destroyer-vertical {
-  width: 20px;
-  height: 40px; }
+  width: 40px;
+  height: 80px; }
 
 .ship-rotate {
   width: 40px;
@@ -97,19 +91,19 @@ body {
   clear: both;
   display: none; }
   .player-one-grids table, .player-two-grids table {
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     float: left; }
     .player-one-grids table td, .player-two-grids table td {
-      width: 20px;
-      height: 20px;
+      width: 40px;
+      height: 40px;
       background: #4483B7; }
   .player-one-grids ul, .player-two-grids ul {
     float: right;
     position: relative;
-    width: 160px; }
+    width: 320px; }
     .player-one-grids ul li, .player-two-grids ul li {
-      padding-top: 30px;
+      padding-top: 50px;
       position: relative;
       list-style-type: none; }
     .player-one-grids ul div, .player-two-grids ul div {
