@@ -4,6 +4,19 @@
   //global vars
   var readyCounter = 0;
   var turnCounter = 0;
+  //ship section arrays
+  var playerOneCarrier;
+  var playerOneBattleship;
+  var playerOneCruiser;
+  var playerOneSubmarine;
+  var playerOneDestroyer;
+  var playerTwoCarrier;
+  var playerTwoBattleship;
+  var playerTwoCruiser;
+  var playerTwoSubmarine;
+  var playerTwoDestroyer;
+ 
+
   $().ready(function(){
     //click events
     //shows player one grids & runs start functions
@@ -46,10 +59,39 @@
   //set up game play
   function beginGame(playerGrid){
     beginGameMessages(playerGrid);
-    if(readyCounter === 2){
-      
-      var turn = playerTurn(); 
+    if(readyCounter === 2){ 
+      playerOneShips();
+      playerTwoShips();
+      var turn = playerTurn();
+      if(turn === 'playerOne'){
+        playGame();
+      } else {
+        playGame();
+      }
     } 
+  }
+
+//   function playGame(){
+    
+//   }
+
+//   function playerOneShips(){  
+//   }
+
+//   function playerTwoShips(){
+//   }
+
+  //puts ships into array
+  function findPlayerShips(shipName, playerGrid){
+    var shipArray = [];
+    //search grid for ship name - for each td
+    $(playerGrid + ' td').each(function(index){
+      var td = $(this); 
+      if(td.hasClass(shipName + '-horizontal')|| td.hasClass(shipName + '-vertical')){
+        shipArray.push(td.attr('data-position'));
+      }
+     }); 
+    return shipArray;
   }
 
   function playerTurn(){
