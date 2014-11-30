@@ -83,6 +83,7 @@
     } else {
       $('.enemy-two-grid td').click(function(){
         var clickedSpot = $(this);
+        console.log('clicked');
         checkForHit(clickedSpot, 'playerTwo');
         turnCounter++;
         var turn = playerTurn();
@@ -113,29 +114,50 @@
     //get data-position attribute of spot
     var position = square.attr('data-position');
     //loop through playerTwo/One ship arrays (HIT)
-      hitOrMiss(position, player);
-       //add red background to enemy grid square 
-       //change other player's ship section to diff color
-       //check if array is empty - if/else statement for sunken ship - check no. of sunken ships
-       //put data-position(td) another array (to keep track of tds that have already been hit)  
-       //append 'HIT' message
-    //else (MISS)
+    var outcome = hitOrMiss(position, player);
+    //add red background to enemy grid square 
+    if(outcome === true){
+      hitConsequences();
+      //change other player's ship section to diff color
+      //check if array is empty - if/else statement for sunken ship - check no. of sunken ships
+      //put data-position(td) another array (to keep track of tds that have already been hit)  
+      //append 'HIT' message
+      return
+    } else {
+     console.log('missed'); 
      //append 'MISS' message
      //change square on enemy grid to white
+    }
   }
 
   //searches ship arrays for hit or miss
   function hitOrMiss(square, player){
+    var hit;
     if(player === 'playerOne'){
       var ships = [playerTwoCarrier, playerTwoBattleship, playerTwoCruiser, playerTwoSubmarine, playerTwoDestroyer];
-       var hit = hitOrMissLoop(ships, square);
+       hit = hitOrMissLoop(ships, square);
     } else {
-      ships = [playerOneCarrier, playerOneBattleship, playerOneCruiser, playerOneSubmarine, playerOneDestroyer];
-      var hit = hitOrMissLoop(ships, square);
+      var ships = [playerOneCarrier, playerOneBattleship, playerOneCruiser, playerOneSubmarine, playerOneDestroyer];
+      hit = hitOrMissLoop(ships, square);
     }
-
     return hit;
   }
+
+  function hitConsequences(){
+    var playerOneMessage = $('<div class="hit-message"><p>Hit</p></div>');
+    var playerTwoMessage = $('<div class="hit-message"><p>Hit</p></div>');
+    var hitMessageClass = '.hit-message';
+    showHideMessage(playerOneMessage,playerTwoMessage,hitMessageClass);
+       
+  }
+
+  function showHideMessage(playerOneMessage, playerTwoMessage, messageClass){
+    $('.player-one-grids').append(playerOneMessage);
+    $('.player-two-grids').append(playerTwoMessage);
+    setTimeout(function(){
+      $(messageClass).hide('slow');
+    }, 3000);
+}
 
   function hitOrMissLoop(ships,aimPosition){
     var hit = false;
