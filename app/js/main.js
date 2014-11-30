@@ -72,7 +72,8 @@
     $('td').off('click');
     if(player === 'playerOne') {
       $('.enemy-one-grid td').click(function(){
-        console.log('click enemy one');
+        var clickedSpot = $(this);
+        checkForHit(clickedSpot, 'playerOne');
         turnCounter++;
         var turn = playerTurn();
         $('td').off('click');
@@ -80,8 +81,9 @@
       });
     } else {
       $('.enemy-two-grid td').click(function(){
-        console.log('click enemy two');
-      turnCounter++;
+        var clickedSpot = $(this);
+        checkForHit(clickedSpot, 'playerTwo');
+        turnCounter++;
         var turn = playerTurn();
         $('td').off('click');
         playGame(turn);
@@ -104,6 +106,52 @@
     playerTwoCruiser = findPlayerShips('cruiser','.player-two-grid');
     playerTwoSubmarine = findPlayerShips('submarine','.player-two-grid');
     playerTwoDestroyer = findPlayerShips('destroyer','.player-two-grid');
+  }
+
+  function checkForHit(square, player){
+    //get data-position attribute of spot
+    var position = square.attr('data-position');
+    //loop through playerTwo/One ship arrays (HIT)
+      hitOrMiss(position, player);
+        //check if sqaure has already been hit before (with already hit array)
+       //add red background to enemy grid square 
+       //change other player's ship section to diff color
+       //check if array is empty - if/else statement for sunken ship - check no. of sunken ships
+       //put data-position(td) another array (to keep track of tds that have already been hit)  
+       //append 'HIT' message
+    //else (MISS)
+     //append 'MISS' message
+     //change square on enemy grid to white
+  }
+
+  //searches ship arrays for hit or miss
+  function hitOrMiss(square, player){
+    if(player === 'playerOne'){
+      var ships = [playerTwoCarrier, playerTwoBattleship, playerTwoCruiser, playerTwoSubmarine, playerTwoDestroyer];
+       var hit = hitOrMissLoop(ships, square);
+    } else {
+      ships = [playerOneCarrier, playerOneBattleship, playerOneCruiser, playerOneSubmarine, playerOneDestroyer];
+      var hit = hitOrMissLoop(shps, square);
+    }
+
+    if(hit === true && checkHitBefore()||hit === false){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function hitOrMissLoop(ships,aimPosition){
+    var hit = false;
+    ships.forEach(function(ship){
+      ship.forEach(function(section){
+        var shipPosition = section;
+        if(shipPosition === aimPosition){
+          hit = true; 
+        }
+      });
+    });
+    return hit;
   }
 
   //puts ships into array
