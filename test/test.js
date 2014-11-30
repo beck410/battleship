@@ -78,10 +78,10 @@
 
   describe('returns data positions of ship in array',function(){
     it('should return array of battleship-horizontal', function(){
-      assert.equal(findPlayerShips('battleship', '.player-one-grids'), ['1','2','3','4']);
+      assert.deepEqual(findPlayerShips('battleship', '.player-one-grids'), ['1','2','3','4']);
     });
     it('should return array of cruiser-vertical', function(){
-      assert.equal(findPlayerShips('cruiser','.player-one-grids'), ['5','9','13'])
+      assert.deepEqual(findPlayerShips('cruiser','.player-one-grids'), ['5','9','13'])
     });
 
   });
