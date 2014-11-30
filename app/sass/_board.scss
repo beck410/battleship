@@ -3,6 +3,10 @@ body {
   margin: 0 auto;
 }
 
+.begin, .turn, .waiting {
+  display: none;
+}
+
 .player-one-grids, .player-two-grids {
   margin: 20px auto;
   clear:both;

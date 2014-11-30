@@ -1,8 +1,9 @@
-;(function(){
+//;(function(){
   'use strict';
   //jshint jquery: true
   //global vars
   var readyCounter = 0;
+  var turnCounter = 0;
   $().ready(function(){
     //click events
     //shows player one grids & runs start functions
@@ -13,22 +14,62 @@
       selectClickedShip(playerOneGrids);
       shipsDraggable(playerOneGrids);
       rotateShips(playerOneGrids);
-      readyCounter ++;
+      shipsReady(playerOneGrids);
     });
 
     //shows player two grids & runs start Functions
     $('#player-two').click(function(){
-      $('#player-two').css('display','none')
+      $('#player-two').css('display','none');
       var playerTwoGrids = '.player-two-grids';
       $(playerTwoGrids).css('display','block');
       selectClickedShip(playerTwoGrids);
       shipsDraggable(playerTwoGrids);
       rotateShips(playerTwoGrids);
-      readyCounter ++;
+      shipsReady(playerTwoGrids);
     });
+
+    
   });
 
+  
   //HELPER FUNCTIONS
+  function shipsReady(playerGrid){
+    //ships not draggable when 'Fleet ready' clicked
+    $(playerGrid + ' #shipsReady').click(function(){
+      $(playerGrid + ' .ship').draggable('destroy');
+      $(playerGrid + ' .start-buttons').css('display','none');
+      readyCounter ++;
+      beginGame(playerGrid);
+    });
+  }
+
+  //set up game play
+  function beginGame(playerGrid){
+    beginGameMessages(playerGrid);
+    if(readyCounter === 2);
+    var turn = playerTurn();  
+  }
+
+  function playerTurn(){
+    if(turnCounter%2 === 0){
+      return 'playerOne';
+    } else {
+      return 'playerTwo';
+    }
+
+  }
+
+  function beginGameMessages(playerGrid){
+      if(readyCounter === 1){
+      $(playerGrid + ' .waiting').css('display','block');
+      return;
+    } else if(readyCounter === 2){
+      $('.waiting').css('display','none');
+      $('.begin').css('display','block');
+    }
+
+  }
+
   //sets ships on grid
   function selectClickedShip(playerGrid){
     $(playerGrid + ' .ship').click(function(){
@@ -61,14 +102,6 @@
         $(this).removeClass('hasShip');
       },
       tolerance: 'pointer'
-    });
-
-    //ships not draggable when 'Fleet ready' clicked
-    $(playerGrid + ' #shipsReady').click(function(){
-      $(playerGrid + ' .ship').draggable('destroy');
-      $(playerGrid + ' .start-buttons').css('display','none')
-      if(readyCounter === 2){
-      }
     });
   }
 
@@ -186,16 +219,16 @@
   }
 
   //check if any ship sections are outside boundary - only works for those with neighbors below 1 and above 100
-  // function checkGridBoundaries(shipSections){
-  //   var outsideGrid = true;
-  //   var n = 0;
-  //   while(outsideGrid === true && n<shipSections.length){
-  //     if(!(shipSections[n] > 0 && shipSections[n] < 101)){
-  //       outsideGrid = false;
-  //     }
-  //     n++;
-  //   }
-  //   return outsideGrid;
-  // }
+  function checkGridBoundaries(shipSections){
+    var outsideGrid = true;
+    var n = 0;
+    while(outsideGrid === true && n<shipSections.length){
+      if(!(shipSections[n] > 0 && shipSections[n] < 101)){
+        outsideGrid = false;
+      }
+      n++;
+    }
+    return outsideGrid;
+  }
 
-})();
+//})();
