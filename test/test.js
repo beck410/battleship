@@ -57,4 +57,22 @@
       assert.equal(checkGridBoundaries(shipSection8),false);
     });
   });
+
+  describe('check if it is player Two turn',function(){
+     it("should return playerTwo", function(){
+       turnCounter = 1;
+       assert.equal(playerTurn(), 'playerTwo');
+       turnCounter = 9;
+       assert.equal(playerTurn(), 'playerTwo');
+     });
+  });
+
+  describe('check if it is player One turn',function(){
+     it('should return player One', function(){
+      turnCounter = 2;
+      assert.equal(playerTurn(), 'playerOne');
+      turnCounter = 10;
+      assert.equal(playerTurn(), 'playerOne');
+    })
+  })
 })();
