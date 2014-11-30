@@ -4,6 +4,7 @@
   //global vars
   var readyCounter = 0;
   var turnCounter = 0;
+  var hitShipSections = [];
  // var gameOver = 0;
   //ship section arrays
   var playerOneCarrier;
@@ -113,7 +114,6 @@
     var position = square.attr('data-position');
     //loop through playerTwo/One ship arrays (HIT)
       hitOrMiss(position, player);
-        //check if sqaure has already been hit before (with already hit array)
        //add red background to enemy grid square 
        //change other player's ship section to diff color
        //check if array is empty - if/else statement for sunken ship - check no. of sunken ships
@@ -134,24 +134,30 @@
       var hit = hitOrMissLoop(shps, square);
     }
 
-    if(hit === true && checkHitBefore()||hit === false){
-      return false;
-    } else {
-      return true;
-    }
+    return hit;
   }
 
   function hitOrMissLoop(ships,aimPosition){
     var hit = false;
     ships.forEach(function(ship){
-      ship.forEach(function(section){
+      ship.forEach(function(section, i){
         var shipPosition = section;
         if(shipPosition === aimPosition){
-          hit = true; 
+          hit = true;
+          addSectionToHitArray(section, i, ship);
         }
       });
     });
     return hit;
+  }
+
+  //adds hit section of ship to hitShipSections
+  function addSectionToHitArray(section,sectionIndex, ship){
+    hitShipSections.push(section);
+    console.log('hitShipSections: ' + hitShipSections);
+    ship.splice('ship: ' + sectionIndex,1); 
+    console.log(ship);
+    debugger;
   }
 
   //puts ships into array
