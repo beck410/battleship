@@ -4,6 +4,7 @@
   //global vars
   var readyCounter = 0;
   var turnCounter = 0;
+ // var gameOver = 0;
   //ship section arrays
   var playerOneCarrier;
   var playerOneBattleship;
@@ -64,15 +65,31 @@
       playerTwoShips();
       var turn = playerTurn();
       playGame(turn);          
+    }
   }
 
   function playGame(player){
-    if(player === "playerOne") {
+    $('td').off('click');
+    if(player === 'playerOne') {
+      $('.enemy-one-grid td').click(function(){
+        console.log('click enemy one');
+        turnCounter++;
+        var turn = playerTurn();
+        $('td').off('click');
+        playGame(turn);
+      });
     } else {
-      
-    }  
+      $('.enemy-two-grid td').click(function(){
+        console.log('click enemy two');
+      turnCounter++;
+        var turn = playerTurn();
+        $('td').off('click');
+        playGame(turn);
+      });
+    }
+    //gameOver();
   }
-
+  
   function playerOneShips(){  
     playerOneCarrier = findPlayerShips('carrier','.player-one-grid');
     playerOneBattleship = findPlayerShips('battleship','.player-one-grid');
@@ -107,7 +124,7 @@
       $('.turn').text('Player One\'s Turn');
       return 'playerOne';
     } else {
-      $('.turn').text('Player Two\'s Turn')
+      $('.turn').text('Player Two\'s Turn');
       return 'playerTwo';
     }
   }
