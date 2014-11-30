@@ -59,20 +59,30 @@
   });
 
   describe('check if it is player Two turn',function(){
-     it("should return playerTwo", function(){
-       turnCounter = 1;
-       assert.equal(playerTurn(), 'playerTwo');
-       turnCounter = 9;
-       assert.equal(playerTurn(), 'playerTwo');
-     });
+    it("should return playerTwo", function(){
+      turnCounter = 1;
+      assert.equal(playerTurn(), 'playerTwo');
+      turnCounter = 9;
+      assert.equal(playerTurn(), 'playerTwo');
+    });
   });
 
   describe('check if it is player One turn',function(){
-     it('should return player One', function(){
+    it('should return player One', function(){
       turnCounter = 2;
       assert.equal(playerTurn(), 'playerOne');
       turnCounter = 10;
       assert.equal(playerTurn(), 'playerOne');
-    })
-  })
+    });
+  });
+
+  describe('returns data positions of ship in array',function(){
+    it('should return array of battleship-horizontal', function(){
+      assert.equal(findPlayerShips('battleship', '.player-one-grids'), ['1','2','3','4']);
+    });
+    it('should return array of cruiser-vertical', function(){
+      assert.equal(findPlayerShips('cruiser','.player-one-grids'), ['5','9','13'])
+    });
+
+  });
 })();
