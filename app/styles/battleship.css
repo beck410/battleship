@@ -86,7 +86,7 @@ body {
   width: 1280px;
   margin: 0 auto; }
 
-.begin, .turn, .waiting {
+.waiting {
   display: none; }
 
 .player-one-grids, .player-two-grids {

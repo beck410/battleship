@@ -46,17 +46,20 @@
   //set up game play
   function beginGame(playerGrid){
     beginGameMessages(playerGrid);
-    if(readyCounter === 2);
-    var turn = playerTurn();  
+    if(readyCounter === 2){
+      
+      var turn = playerTurn(); 
+    } 
   }
 
   function playerTurn(){
     if(turnCounter%2 === 0){
+      $('.turn').text('Player One\'s Turn');
       return 'playerOne';
     } else {
+      $('.turn').text('Player Two\'s Turn')
       return 'playerTwo';
     }
-
   }
 
   function beginGameMessages(playerGrid){
@@ -65,7 +68,6 @@
       return;
     } else if(readyCounter === 2){
       $('.waiting').css('display','none');
-      $('.begin').css('display','block');
     }
 
   }
