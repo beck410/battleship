@@ -110,12 +110,13 @@ body {
       position: relative;
       list-style-type: none; }
     .player-one-grids ul div, .player-two-grids ul div {
-      z-index: 999;
+      z-index: 800;
       margin-top: -25px; }
   .player-one-grids .player-one-grid, .player-one-grids .player-two-grid, .player-two-grids .player-one-grid, .player-two-grids .player-two-grid {
     float: left; }
 
-.hit-message {
+.hit-message, .miss-message {
+  display: none;
   position: absolute;
   height: 200px;
   width: 500px;
