@@ -100,7 +100,8 @@ body {
     .player-one-grids table td, .player-two-grids table td {
       width: 40px;
       height: 40px;
-      background: #4483B7; }
+      background: #4483B7;
+      border: 1px solid black; }
   .player-one-grids ul, .player-two-grids ul {
     float: right;
     position: relative;
