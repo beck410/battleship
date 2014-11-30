@@ -131,7 +131,7 @@
        var hit = hitOrMissLoop(ships, square);
     } else {
       ships = [playerOneCarrier, playerOneBattleship, playerOneCruiser, playerOneSubmarine, playerOneDestroyer];
-      var hit = hitOrMissLoop(shps, square);
+      var hit = hitOrMissLoop(ships, square);
     }
 
     return hit;
@@ -154,10 +154,7 @@
   //adds hit section of ship to hitShipSections
   function addSectionToHitArray(section,sectionIndex, ship){
     hitShipSections.push(section);
-    console.log('hitShipSections: ' + hitShipSections);
     ship.splice('ship: ' + sectionIndex,1); 
-    console.log(ship);
-    debugger;
   }
 
   //puts ships into array
