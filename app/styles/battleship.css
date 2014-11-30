@@ -23,7 +23,7 @@
   *zoom: 1; }
 
 .ship {
-  background: red;
+  background: grey;
   position: absolute;
   border: 1px solid black; }
   .ship span {
@@ -102,6 +102,17 @@ body {
       height: 40px;
       background: #4483B7;
       border: 1px solid black; }
+      .player-one-grids table td span.miss, .player-one-grids table td span.hit, .player-two-grids table td span.miss, .player-two-grids table td span.hit {
+        width: 35px;
+        height: 35px;
+        display: block;
+        border-radius: 50%;
+        margin: 5px auto;
+        z-index: 900; }
+      .player-one-grids table td span.miss, .player-two-grids table td span.miss {
+        background: white; }
+      .player-one-grids table td span.hit, .player-two-grids table td span.hit {
+        background: red; }
   .player-one-grids ul, .player-two-grids ul {
     float: right;
     position: relative;
