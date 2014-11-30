@@ -63,23 +63,31 @@
       playerOneShips();
       playerTwoShips();
       var turn = playerTurn();
-      if(turn === 'playerOne'){
-        playGame();
-      } else {
-        playGame();
-      }
-    } 
+      playGame(turn);          
   }
 
-//   function playGame(){
-    
-//   }
+  function playGame(player){
+    if(player === "playerOne") {
+    } else {
+      
+    }  
+  }
 
-//   function playerOneShips(){  
-//   }
+  function playerOneShips(){  
+    playerOneCarrier = findPlayerShips('carrier','.player-one-grid');
+    playerOneBattleship = findPlayerShips('battleship','.player-one-grid');
+    playerOneCruiser = findPlayerShips('cruiser','.player-one-grid');
+    playerOneSubmarine = findPlayerShips('submarine','.player-one-grid');
+    playerOneDestroyer = findPlayerShips('destroyer','.player-one-grid');
+  }
 
-//   function playerTwoShips(){
-//   }
+  function playerTwoShips(){
+    playerTwoCarrier = findPlayerShips('carrier','.player-two-grid');
+    playerTwoBattleship = findPlayerShips('battleship','.player-two-grid');
+    playerTwoCruiser = findPlayerShips('cruiser','.player-two-grid');
+    playerTwoSubmarine = findPlayerShips('submarine','.player-two-grid');
+    playerTwoDestroyer = findPlayerShips('destroyer','.player-two-grid');
+  }
 
   //puts ships into array
   function findPlayerShips(shipName, playerGrid){
