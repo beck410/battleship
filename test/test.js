@@ -83,6 +83,30 @@
     it('should return array of cruiser-vertical', function(){
       assert.deepEqual(findPlayerShips('cruiser','.player-one-grids'), ['5','9','13'])
     });
+  });
+
+  describe('returns true if hit and false if miss',function(){
+    var ship1 = findPlayerShips('battleship', '.player-one-grids');
+    console.log(ship1)
+    var ship2 = findPlayerShips('cruiser', '.player-one-grids');
+  console.log(ship2)
+    var ships = [ship1, ship2];
+    
+    it('should return true for hit', function(){
+      assert.equal(hitOrMissLoop(ships,'5'), true);
+    });
+    it('should return true for hit', function(){
+      assert.equal(hitOrMissLoop(ships,'1'), true);
+    });
+    it('should return true for hit', function(){
+      assert.equal(hitOrMissLoop(ships,'13'), true);
+    });
+    it('should return false for hit', function(){
+      assert.equal(hitOrMissLoop(ships, '16'), false);
+    });
+    it('should return false for hit', function(){
+      assert.equal(hitOrMissLoop(ships, '7'), false);
+    });
 
   });
 })();
