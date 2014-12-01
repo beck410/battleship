@@ -81,7 +81,6 @@ function playGame(player){
   } else {
     $('.enemy-two-grid td').click(function(){
       var clickedSpot = $(this);
-      console.log('clicked');
       checkForHit(clickedSpot, 'playerTwo');
       turnCounter++;
       var turn = playerTurn();
@@ -89,7 +88,6 @@ function playGame(player){
       playGame(turn);
     });
   }
-  //gameOver();
 }
 
 function playerOneShips(){  
@@ -173,30 +171,39 @@ function addPeg(position, player,outcome){
 }
 
 function showHideMessage(messageClass){
+  if(messageClass === '.sunk'){
+    $(messageClass).delay(3000).show('slow');
+  }
   $(messageClass).show('slow');
   setTimeout(function(){
     $(messageClass).hide('slow');
   }, 3000);
 }
 
-function hitOrMissLoop(ships,aimPosition){
+function hitOrMissLoop(ships,aimPosition,cell){
+  debugger;
   var hit = false;
-  ships.forEach(function(ship){
-    ship.forEach(function(section, i){
-      var shipPosition = section;
-      if(shipPosition === aimPosition){
+  var shipArray;
+  ships.forEach(function(ship, a){
+    ship.forEach(function(section, b){
+      if(section === aimPosition){
         hit = true;
-        addSectionToHitArray(section, i, ship);
+        shipArray = ship;
+        addSectionToHitArray(section, b, ship);
       }
     });
+  });
+  var removeSection = aimPosition; 
+  _.remove(shipArray,function(position){
+    console.log(shipArray);
+    return position === removeSection;
   });
   return hit;
 }
 
 //adds hit section of ship to hitShipSections
-function addSectionToHitArray(section,sectionIndex, ship){
+function addSectionToHitArray(section, ship){
   hitShipSections.push(section);
-  ship.splice('ship: ' + sectionIndex,1); 
 }
 
 //puts ships into array
@@ -242,7 +249,6 @@ function selectClickedShip(playerGrid){
 
 //ships become draggable and grids are droppable
 function shipsDraggable(playerGrid){
-
   //adds ui.draggable to ships
   $(playerGrid + ' .ship').draggable({
     grid: [40,40],
