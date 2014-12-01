@@ -114,7 +114,7 @@ function checkForHit(square, player){
   if(outcome === true){
     checkForSunkenShip(square,player);
     hitConsequences(position,player);
-    //checkForGameOver();
+    checkForGameOver();
   } else {
     missConsequences(position, player); 
   }
@@ -137,10 +137,8 @@ function checkForSunkenShip(square,player){
   if(player === 'playerOne'){
     var ships = [playerTwoCarrier, playerTwoBattleship, playerTwoCruiser, playerTwoSubmarine, playerTwoDestroyer];
     ships.forEach(function(ship){
-      console.log(ship.length)
-      debugger;
       if(ship.length === 0){
-        playerOneSinkCounter ++; 
+        playerTwoSinkCounter ++; 
         showHideMessage('.sunk');
         ship.push('.sunk')
       }
@@ -148,13 +146,28 @@ function checkForSunkenShip(square,player){
   } else {
     var ships = [playerOneCarrier, playerOneBattleship, playerOneCruiser, playerOneSubmarine, playerOneDestroyer];
     ships.forEach(function(ship){
-      console.log(ship.length);
-      debugger;
       if(ship.length === 0){
-        playerTwoSinkCounter ++; 
+        playerOneSinkCounter ++; 
         showHideMessage('.sunk');
+        ship.push('.sunk')
       }
     });   
+  }
+}
+
+function checkForGameOver(){
+  if(playerTwoSinkCounter === 5){
+    $('table').hide();
+    $('ul').hide();
+    $('p').hide();
+    $('h1').hide();
+    $('#player-one-win').show('slow');
+  } else if(playerOneSinkCounter === 5){
+    $('table').hide();
+    $('ul').hide();
+    $('p').hide();
+    $('h1').hide();
+    $('#player-two-win').show('slow');
   }
 }
 
@@ -191,12 +204,15 @@ function addPeg(position, player,outcome){
 
 function showHideMessage(messageClass){
   if(messageClass === '.sunk'){
-    $(messageClass).delay(3000).show('slow');
+    $(messageClass).delay(1100).show('slow');
+    setTimeout(function(){
+      $(messageClass).hide('slow');
+    }, 2000);
   }
   $(messageClass).show('slow');
   setTimeout(function(){
     $(messageClass).hide('slow');
-  }, 3000);
+  }, 1000);
 }
 
 function hitOrMissLoop(ships,aimPosition,cell){

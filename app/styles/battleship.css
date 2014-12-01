@@ -127,7 +127,7 @@ body {
   .player-one-grids .player-one-grid, .player-one-grids .player-two-grid, .player-two-grids .player-one-grid, .player-two-grids .player-two-grid {
     float: left; }
 
-.hit-message, .miss-message, .sunk {
+.hit-message, .miss-message, .sunk, #player-one-win, #player-two-win {
   display: none;
   position: absolute;
   height: 200px;
