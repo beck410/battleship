@@ -5,6 +5,8 @@
 var readyCounter = 0;
 var turnCounter = 0;
 var hitShipSections = [];
+var playerOneSinkCounter = 0;
+var playerTwoSinkCounter = 0;
 // var gameOver = 0;
 //ship section arrays
 var playerOneCarrier;
@@ -107,42 +109,59 @@ function playerTwoShips(){
 }
 
 function checkForHit(square, player){
-  //get data-position attribute of spot
   var position = square.attr('data-position');
-  //loop through playerTwo/One ship arrays (HIT)
   var outcome = hitOrMiss(position, player);
-  //add red background to enemy grid square 
   if(outcome === true){
+    checkForSunkenShip(square,player);
     hitConsequences(position,player);
-    //change other player's ship section to diff color
-    //check if array is empty - if/else statement for sunken ship - check no. of sunken ships
-    //put data-position(td) another array (to keep track of tds that have already been hit)  
-    return
+    //checkForGameOver();
   } else {
-    console.log('missed');
     missConsequences(position, player); 
-    //change square on enemy grid to white
   }
 }
 
 //searches ship arrays for hit or miss
-function hitOrMiss(square, player){
+function hitOrMiss(square, player, cell){
   var hit;
   if(player === 'playerOne'){
     var ships = [playerTwoCarrier, playerTwoBattleship, playerTwoCruiser, playerTwoSubmarine, playerTwoDestroyer];
-    hit = hitOrMissLoop(ships, square);
+    hit = hitOrMissLoop(ships, square, cell);
   } else {
     var ships = [playerOneCarrier, playerOneBattleship, playerOneCruiser, playerOneSubmarine, playerOneDestroyer];
-    hit = hitOrMissLoop(ships, square);
+    hit = hitOrMissLoop(ships, square, cell);
   }
   return hit;
+}
+
+function checkForSunkenShip(square,player){
+  if(player === 'playerOne'){
+    var ships = [playerTwoCarrier, playerTwoBattleship, playerTwoCruiser, playerTwoSubmarine, playerTwoDestroyer];
+    ships.forEach(function(ship){
+      console.log(ship.length)
+      debugger;
+      if(ship.length === 0){
+        playerOneSinkCounter ++; 
+        showHideMessage('.sunk');
+        ship.push('.sunk')
+      }
+    });
+  } else {
+    var ships = [playerOneCarrier, playerOneBattleship, playerOneCruiser, playerOneSubmarine, playerOneDestroyer];
+    ships.forEach(function(ship){
+      console.log(ship.length);
+      debugger;
+      if(ship.length === 0){
+        playerTwoSinkCounter ++; 
+        showHideMessage('.sunk');
+      }
+    });   
+  }
 }
 
 function hitConsequences(hitPosition, player){
   var hitMessageClass = '.hit-message';
   showHideMessage(hitMessageClass);
   addPeg(hitPosition, player, 'hit');
-
 }
 
 function missConsequences(missPosition, player){
@@ -181,7 +200,6 @@ function showHideMessage(messageClass){
 }
 
 function hitOrMissLoop(ships,aimPosition,cell){
-  debugger;
   var hit = false;
   var shipArray;
   ships.forEach(function(ship, a){
@@ -195,7 +213,6 @@ function hitOrMissLoop(ships,aimPosition,cell){
   });
   var removeSection = aimPosition; 
   _.remove(shipArray,function(position){
-    console.log(shipArray);
     return position === removeSection;
   });
   return hit;
